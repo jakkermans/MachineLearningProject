@@ -17,7 +17,8 @@ def read_files(categories):
                 data = open(category + '/' + f, 'r', encoding='UTF-8').read()
 
                 tokens = word_tokenize(data)
-                feats.append((tokens, category))
+                lower_tokens = [token.lower() for token in tokens]
+                feats.append((lower_tokens, category))
                 # print len(tokens)
                 num_files += 1
             # if num_files>=50: # you may want to de-comment this and the next line if you're doing tests (it just loads N documents instead of the whole collection so it runs faster
@@ -25,7 +26,7 @@ def read_files(categories):
             except UnicodeDecodeError:
                 print('Decode error')
 
-        print("  Category %s, %i files read" % (category, num_files))
+            print("  Category %s, %i files read" % (category, num_files))
 
     print("  Total, %i files read" % (len(feats)))
     return feats
