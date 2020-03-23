@@ -1,0 +1,110 @@
+﻿Inleiding
+Deze paper behandelt de problematiek omtrent dt-fouten. Deze komen enorm vaak voor, hoewel de regel die je moet volgen om deze fouten te vermijden eigenlijk erg eenvoudig is. Hoe komt het dan dat er toch zo veel fouten tegen gemaakt worden? In deze paper zal eerst uitgelegd worden hoe het mentale lexicon werkt, en hoe dit mentale lexicon precies zorgt dat er fouten worden gemaakt tegen de Nederlandse spelling. Vervolgens zal dit toegepast worden op de dt-problematiek.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.	Het mentale lexicon
+Tijdens het schrijven, spreken en luisteren, zijn we constant bezig met het herkennen en produceren van woorden. Sommige van deze woorden moeten we construeren met behulp van regels. Dit zijn de regelwoorden. Sommige woorden kunnen we niet construeren met behulp van regels en moeten we dus onthouden: dit zijn weetwoorden (Sandra, 2011, p71). Deze paper is gericht op het schrijven, en dus construeren, van zowel weetwoorden als regelwoorden.
+
+Telkens wanneer we nieuwe woorden leren moeten deze woorden systematisch door ons ‘opgeslagen’ worden in het mentale lexicon, zodat we ze binnen een juiste context kunnen gebruiken. Deze woorden kunnen we niet ophalen door een reeks regels toe te passen, maar moeten we in hun geheel, dus met bijhorende kenmerken, onthouden (Sandra 2011, p71). We maken van dit mentale lexicon gebruik zowel bij het herkennen van woorden, als bij het construeren ervan (Bax, 1995, p258-259). Regels voor regelwoorden worden opgeslagen in het werkgeheugen (Sandra, Daems & Frisson, 2001, p9). Deze woorden kunnen we normaal gezien construeren en herkennen door het toepassen van regels. Een voorbeeld hiervan is dat we vertelde herkennen als een constructie in de verleden tijd. De uitgang –de¬ wil bij werkwoorden, mits uitzonderingen bij onregelmatige werkwoorden, zeggen dat de handeling die door het werkwoord wordt uitgedrukt in het verleden plaatsgevonden heeft.
+
+1.1.	Werking van het mentale lexicon
+Wanneer we woorden herkennen moeten ze uit het mentale lexicon opgehaald worden. Het ophalen van deze woorden is voor het brein een constante bezigheid, en gebeurt aan zeer hoog tempo. Droste (1996) schrijft hierover:
+
+Als er in ons brein signalen binnenkomen, moeten die afgetast, geclassificeerd, herkend worden. Dat herkennen gebeurt door confrontatie van het nieuwe met het al bekende (p294).
+
+Wat er bij het zoeken naar woorden om een zin te schrijven gebeurt is dat er verschillende processen elkaar afwisselen (Droste 1996, p295-296). Bij het schrijven van weetwoorden moeten we de schrijfwijze ophalen uit ons mentale lexicon. Dit gebeurt stapsgewijs, maar gaat enorm snel (Sandra, Daems & Frisson, 2001, p10).
+
+Wanneer we woorden moeten herkennen om ze te begrijpen, vindt er een proces plaats in onze hersenen dat bij ieder bijkomend element van het woord – dus iedere klank die erbij komt – razendsnel door onze hersenen zoekt naar alle woorden die op dat moment voldoen aan de criteria, en dus beginnen met dezelfde letter- of klankreeks (Droste 1996, p294). Het gaat hier om een fonologisch proces, want bij het ophalen van deze woorden, zowel bij het construeren als bij het herkennen ervan, kijken we niet naar de schrijfwijze. De schrijfwijze van deze woorden is een kenmerk dat we samen met het woord opslaan in het mentale lexicon. Op deze manier kunnen we het verschil onderscheiden tussen homofone woorden: woorden die hetzelfde klinken maar een verschillende betekenis hebben: bijvoorbeeld peil en pijl.
+
+Het ophalen van de juiste woorden gebeurt volgens de theorie van het cohortemodel. Byrd en Mintz (2010) omschrijven het cohortemodel als volgt:
+
+According to this theory, the first phonological unit of a word, as recovered from the speech signal activates all the words in the listeners mental lexicon that begin with that sound. Assuming that the first sound was accurately perceived, one of those (potentially many) words is the target word, and all the other active words are collectively the cohort (p162).
+
+Homofone vormen die vaak voorkomen worden op deze manier sneller uit de cohorte opgehaald. Het gebeurt echter dat werkwoorden, waarvan de regels eigenlijk moeten worden opgehaald uit het werkgeheugen, mee in de cohorte zitten. Dit kan voor fouten zorgen wanneer vaker voorkomende werkwoordvormen sneller worden opgehaald, wat verder wordt toegelicht in 2.2.1.
+
+1.2.	De snelheid van het mentale lexicon
+Doordat het ophalen van woorden uit het mentale lexicon zo snel gebeurt, maken we fouten die vermeden kunnen worden. Vergissingen tussen woorden die sterk op elkaar lijken zijn snel gemaakt (Danckaert, 2012) Verassen betekent bijvoorbeeld niet hetzelfde als verrassen, maar deze woorden klinken wel hetzelfde. De zeer snelle werking van het mentale lexicon kan ook positieve gevolgen hebben, zoals wordt aangetoond in het shadowing experiment. Iemand die op snel tempo iemand anders precies moet nazeggen, zal dankzij het mentale lexicon, het eerder vermeldde cohortemodel en de context van de zin automatisch de fout die de voorzegger expres maakte herstellen. Wanneer de voorlezer dan bijvoorbeeld “Jan heeft zijn brood bij de bakker gekost” aanbiedt, zal de proefpersoon in dit experiment hoogstwaarschijnlijk “Jan heeft zijn brood bij de bakker gekocht” zeggen. Dit automatisch corrigeren van dergelijke fouten heet foneemrestauratie.  (Byrd & Mintz 2010, p160-162).
+
+Er wordt voortdurend gebruik gemaakt van het mentale lexicon, ook wanneer we dit niet verwachten. Regelwoorden worden door hun veelvuldige gebruik vaak ook opgehaald uit het cohortemodel in plaats van gevormd door regels, wat maakt dat er tegen de spelling van gelijk klinkende woorden ook fouten worden gemaakt: dt-fouten.
+
+
+
+
+
+
+
+
+
+
+
+
+2.	De dt-regel
+Fouten tegen de dt-regel zijn niet noodzakelijk de meest gemaakte fouten, maar wel diegenen waar het hardst op gereageerd wordt. In menig middelbare school trekken leerkrachten die geen Nederlands geven ook punten af voor het maken van dit type fouten. De reden dat hier zo negatief op gereageerd wordt is dat de regel erg eenvoudig is. Wanneer dus zelfs hoog getrainde mensen nog fouten maken tegen deze erg eenvoudige regel, gaat men zich de vraag stellen hoe dit mogelijk is.
+2.1.	Eenvoud van de regels
+Reeds op jonge leeftijd wordt de zeer eenvoudige ‘dt-regel’ aan leerlingen aangeleerd. Dit gebeurt dikwijls eerst via een algoritme, zoals er in bijlage een te vinden is (Bijlage 1: Halink, 2000, p22-23), maar het volgen van dit algoritme duurt op termijn veel te lang, en is voor kinderen moeilijk om een gewoonte van te maken (Sandra, 2011, pp71). 
+
+Het aantal regels voor het spellen en vervoegen van werkwoorden in de tegenwoordige tijd is erg beperkt: het komt er op neer in de juiste tijden een ‘t’ toe te voegen aan de stam, wat gebeurt naar analogie met werkwoorden waarvan de stam niet eindigt op een d. Hogeweg (2003) schrijft over de regels het volgende:
+
+Vaak is de reactie na een uitleg verbaasd: ‘Is dat nou alles? Heb ik me daar nou al die jaren zo druk over gemaakt?’ Mogelijk komt dit ook doordat men in de loop der jaren vaak allerlei niet-bestaande regels en uitzonderingen zelf bedacht heeft en de spelling daardoor nodeloos ingewikkeld heeft gemaakt (p12).
+
+Het is ook belangrijk dat men de regels voor tegenwoordige tijd niet toepast bij verleden tijd of voltooid deelwoord, of omgekeerd. Vaak leidt het goed kennen van de regel van een van deze drie onderscheidingen tot fouten bij de andere twee (Hogeweg, 2003, p11). Wanneer er een t-uitgang wordt toegevoegd aan een werkwoord waarvan de stam niet eindigt op een d, is de ‘t’ hoorbaar, maar wanneer de stam van het werkwoord wel eindigt op een ‘d’ wordt de t-uitgang fonologisch niet waargenomen, wat voor onbewuste fouten kan zorgen. Dit is een deel van de oorzaak van zogenaamde dt-fouten.
+
+2.2.	Oorzaak van dt-fouten
+Dt-fouten komen voornamelijk voor bij homofone vormen van werkwoorden. Dit zijn vervoegingen die hetzelfde klinken, maar verschillende schrijfwijzen hebben. Wanneer je luistert zal je bijvoorbeeld geen verschil horen tussen ‘word’ zonder t-uitgang, en ‘wordt’ met t-uitgang. Omdat werkwoorden regelwoorden zijn moet men de regels om hen juist te vervoegen ophalen uit het werkgeheugen. Verschillende werkwoorden worden echter door ons ook opgeslagen in het mentale lexicon, en doordat het mentale lexicon erg snel werkt is er soms sprake van interferentie bij regelwoorden. Dit zorgt ervoor dat bij spontaan schrijven foutieve vormen sneller worden opgehaald uit het mentale lexicon dan een persoon de tijd heeft om de –zeer eenvoudige– regel op te halen uit het werkgeheugen. Het mentale lexicon zal op dat moment de vorm die met een hogere frequentie voorkomt sneller ophalen dan de gelijk klinkende vorm die minder vaak voorkomt. Ook de afstand tussen werkwoord en bijhorend onderwerp zorgt voor fouten. Deze interferentie door hoeveelheid van voorkomen en afstand werd experimenteel aangetoond door Sandra, Frisson & Daems:
+
+The relationship between the homophone frequencies, together with distance, infuenced the participants’ spelling behavior. More spelling errors were made when a homophonous verb form of higher frequency existed alongside the target form and when the target form and the word determining its suffix were seperated by a number of words (1999, p282).
+
+2.2.1.	Homofoondominantie
+Van werkwoorden waarvan de stam eindigt op een ‘d’ zijn er steeds homofone vormen aanwezig. Bij ieder van deze werkwoorden zal oftewel de vorm met t-uitgang oftewel de vorm zonder t-uitgang het vaakst voorkomen. Dit noemt men homofoondominantie. Het is bij deze woorden dat er sprake is van de zogenaamde dt-fouten.
+
+Het aantal werkwoorden waarbij er van homofoondominantie gesproken kan worden is slechts een minderheid van de Nederlandse werkwoordsvormen. Slechts 5 à 10 procent van alle Nederlandstalige werkwoorden heeft binnen zijn vervoeging homofone vormen waartegen dt-fouten gemaakt kunnen worden. 95% van alle Nederlandstalige werkwoorden kunnen dus geschreven worden op basis van hoe ze klinken, bij de 5% waar er sprake is van homofoondominantie moeten we in regel vertrouwen op het werkgeheugen (Sandra, 2011, p72). Wanneer de vorm zonder t-uitgang het vaakst voorkomt noemen we het een d-dominant werkwoord, wanneer de vorm met t-uitgang het vaakst voorkomt spreken we van een dt-dominant werkwoord. 
+
+Wanneer men dt-fouten maakt zal het vaakst gekozen worden voor de meest voorkomende homofoonvorm van het werkwoord in kwestie. De meeste fouten worden gemaakt tegen de d-vorm van dt-dominante werkwoorden, en de dt-vorm van d-dominante werkwoorden. De meest voorkomende vorm werd dus steeds het snelst opgehaald uit het mentale lexicon, en er was nauwelijks (zichtbaar) sprake van gokken of persoonlijke voorkeur (Sandra, 2011, p73).
+
+2.2.2.	Tijdsgebrek bij werkwoordspelling
+In een onderzoek van Sandra, Daems & Frisson werd de volgende hypothese getest: ‘Hoe meer tijd je nodig hebt om een werkwoordhomofoon te spellen, hoe meer fouten je maakt’ (Sandra, 2011, p72). Dit werd gedaan door twee soorten zinnen aan een testpubliek voor te leggen in een dictee: zinnen waarvan het werkwoord meteen volgt op het onderwerp, en zinnen waarbij er zeker vier woorden tussen onderwerp en werkwoord staan. Het dictee werd afgenomen bij 18-jarigen en onder tijdsdruk – om zo spontaan schrijven te simuleren – de leerlingen hadden geen of nauwelijks tijd om hun zinnen na te lezen (2011, p72).
+
+De resultaten bevestigden de hypothese dat dt-fouten mee veroorzaakt worden omdat er te weinig tijd is voor grammaticale analyse: de proefpersonen maakten significant meer fouten in zinnen waar er vier woorden tussen het onderwerp en de werkwoordhomofoon stonden (Sandra, 2011, p72). In dergelijke situatie, waar men snel de beslissing moet nemen al dan niet een t toe te voegen aan de werkwoordstam, gaat men in de meeste gevallen kiezen voor de meest frequente homofone vorm, zoals in 2.2.1. uitgelegd. Het is dus de combinatie van deze twee factoren die maakt dat een dt-fout snel gemaakt is.
+Conclusie
+De regels voor het spellen en vervoegen van werkwoorden zijn heel erg eenvoudig. Deze eenvoud zorgt echter dat er erg negatief gekeken wordt naar fouten tegen de spelling van de werkwoorden, en vooral naar zogenoemde ‘dt-fouten’. Dt-fouten komen voor bij homofone werkwoordvormen. Dit zijn werkwoordvormen die volledig hetzelfde klinken, maar anders geschreven worden. Ze verschillen in hun uitgang doordat ze ofwel eindigen op een ‘d’ ofwel eindigen op ‘dt’, afhankelijk van het onderwerp dat bij het werkwoord hoort. Wanneer iemand spontaan schrijft, zorgt de snelle werking van het mentale lexicon dat de schrijver de meest frequente vorm van het homofoonpaar zal kiezen, ook wanneer de minder frequent voorkomende vorm van dit paar in deze constructie gebruikt moet worden. De kansen op het maken van deze fouten vergroten zelfs nog, wanneer de afstand tussen het onderwerp en het homofoonwerkwoord vergroot wordt. Deze conclusie, dat fouten veroorzaakt worden door homofoondominantie, tijdsdruk en afstand, werd gevormd na een onderzoek door Sandra, Daems en Frisson (1999, p282).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

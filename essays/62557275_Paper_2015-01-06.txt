@@ -1,0 +1,102 @@
+Genderindicatoren voor stylometrisch onderzoek in geschreven en online tekstmateriaal 
+
+1. Inleiding
+
+ ‘De taalcomputer leest wie u bent’, is de tot de verbeelding sprekende titel van een artikel uit De Standaard. Het artikel handelt over computerprogramma’s die ontwikkeld zijn om informatie over tekstschrijvers te achterhalen. Een belangrijke en interessante component hiervan is het achterhalen van het gender van een auteur. Genderverschillen worden  meestal onderzocht in gesproken taal,  maar er bestaan ook onderzoeken naar genderverschillen in geschreven taal. Daarnaast wordt er de laatste jaren steeds meer geschreven over genderverschillen in Computer-Mediated Communication. Door middel van een analyse van invloedrijke studies probeert deze paper een antwoord te bieden op de vraag: wat zijn de voornaamste genderindicatoren in geschreven teksten en in online tekstmateriaal? Voor geschreven tekstmateriaal werden in deze paper twee wetenschappelijke artikels gebruikt van de hand van Mulac en Lundell (1994) en van Argamon, Koppel, Fine en Shimoni (2003). Om de genderindicatoren voor online tekstmateriaal te achterhalen, werd gebruik gemaakt van drie artikels, waarvan één geschreven door Peersman, Daelemans en Van Vaerenbergh (2011), één door Baron (2004) en één door Schwartz et al. (2013).
+
+2. Stylometrisch onderzoek
+
+De stijl van een tekst wordt bepaald door een grote verscheidenheid aan factoren. Niet alleen de inhoud en het genre van een tekst bepalen de schrijfstijl van een auteur, maar ook verschillende psychologische en sociologische eigenschappen van de schrijver zullen een zekere invloed uitoefenen op zijn schrijfstijl. Zo bepalen onder meer persoonlijkheid, mentale gezondheid, leeftijd en gender mee de stijl van een tekst. De wetenschappelijke discipline stylometrie heeft als doel de causale verbanden tussen de sociologische en psychologische eigenschappen van een auteur en zijn schrijfstijl te beschrijven en te verklaren (Daelemans, 2013, p. 1). Aan de hand van resultaten van stylometrisch onderzoek kunnen wetenschappers vervolgens aan de slag om informatiesystemen te ontwikkelen die de identiteit of psychologische en sociologische eigenschappen van auteurs kunnen achterhalen (Daelemans, 2013, p. 1). In deze paper zullen we focussen op de stilistische variatie die het sociologische aspect gender teweeg brengt in geschreven teksten en in online tekstmateriaal.  
+
+3. Het begrip ‘gender’
+
+In de sociolinguïstische literatuur spreekt men niet van sekseverschillen, maar van genderverschillen. Lorber (1991) verklaart helder het verschil tussen sekse en gender:
+
+	Gender and sex are not equivalent, and gender as a social construction does not 	flow automatically from genitalia and reproductive organs, the main physiological 	differences of females and males. In the construction of … social statuses, 	physiological differences such as sex, stage of development, color of skin, and size 	are crude markers. They are not the source of the social statuses of gender, age 	grade, and race. Social statuses are carefully constructed through prescribed 	processes of teaching, learning, emulation, and enforcement. (Lorber, 1991, p. 56)
+
+Kortom, het begrip gender staat voornamelijk voor de socioculturele aspecten van het man- of vrouwzijn en sekse voor de biologische eigenschappen. Aangezien de sociologische aspecten van taalgebruikers het onderwerp zijn van sociolinguïstisch onderzoek, is het logisch dat men spreekt over gender en niet over sekse.
+
+4. Gender onderscheiden door middel van stylometrisch onderzoek
+	4.1 Gender en geschreven taal
+
+Een groot deel van de studies betreffende taal en gender is gebaseerd op een analyse van gesproken taal. Tot enkele jaren terug waren er maar een paar onderzoeken die genderverschillen in geschreven taal analyseerden (Baron, 2004, p. 403). Een deel van deze onderzoeken baseert zich op 17de -eeuwse briefcorrespondenties, hieronder valt ook het onderzoek van Biber, Conrad en Reppen (1998). In deze paper wordt geopteerd te focussen op de bevindingen van twee grootschalige onderzoeken die zich baseren op grote tekstcorpora, in plaats van op briefcorrespondenties, namelijk de onderzoeken van Mulac en Lundell (1994) en Argamon et al. (2003).
+
+Wetenschapster Naomi S. Baron (2004) vat in haar artikel See you online: Gender Issues in College Student Use of Instant Messaging kort en krachtig de voornaamste bevindingen van deze twee onderzoeken samen. De geschreven taal van vrouwen blijkt meer sociaal/begaan te zijn dan de taal van mannen in geschreven teksten. De onderzoeken wijzen erop dat de geschreven taal van vrouwen dichter bij standaardtaal aanleunt. De onderzoeken tonen dus aan dat er ook in geschreven taal verschillen zijn tussen genders. In het volgende onderdeel bekijken we welke elementen aanwijzingen zijn van deze verschillen (Baron, 2004, pp. 403-404). 
+
+		4.1.1 Genderindicatoren
+			4.1.1.1  Mannen
+
+Mulac en Lundell (1994) selecteerden voor hun onderzoek 17 indicatoren/features. Met de combinatie van deze features probeerden ze het gender van auteurs achterhalen. Hun classificatiesysteem zou in 72,5% van de teksten accuraat blijken. Van de 17 features werden 5 variabelen geselecteerd om het mannelijk gender te achterhalen: references to quantity, locatives, elliptical sentences, judgmental adjectives en sentence initial conjunctions. Uit de resultaten van hun artikel blijkt dat vier van deze vijf features inderdaad opvallend meer voorkomen in het taalgebruik van mannen dan in het taalgebruik van vrouwen. Enkel sentence intitial conjuctions werden niet significant meer of minder gehanteerd door een bepaald gender. (Mulac & Lundell, 1994, pp. 303-304).
+
+Het onderzoek van Argamon et al. (2003) focust op de hypothese dat mannen een meer informatieve taal hanteren en vrouwen een meer betrokken taal. Deze hypothese werd door hun onderzoeksresultaten bevestigd. De meer informatieve taal van mannen werd aangetoond aan de hand van enkele features. Zo bleken mannen meer specifiers te gebruiken dan vrouwen. Onder deze specifiers vallen onder meer de eerder genoemde references to quantity en locatives. Ook determiners vallen onder de categorie specifiers (Argamon et al., 2003, pp. 325-327). Het onderzoek bevestigt de bevindingen van Mulac en Lundell (1994) en versterkt ze ook: 
+
+	Our results thus confirm and extend his [Biber] and others’ findings (Mulac and 	Lundell 1994; Biber et al. 1998) that male authors tend to use more 
+	‘informational’ features. … Quantification (reasonably considered an 	‘informational’ feature) is not considered by Biber; however, our results here support 	the related observation (Mulac et al. 1990; Mulac and Lundell 1994) that ‘references 	to quantity or place’ is a male indicator in short student essays. 
+	(Argamon et al., 2003, p. 334)
+
+Genderindicatoren voor mannelijk taalgebruik in geschreven tekstmateriaal
+ References to quantity (specifier)
+  Locatives (specifier)
+  Determiners (specifier)
+  Elliptical sentences
+Judgmental adjectives
+Tabel 1. Genderindicatoren voor mannelijk taalgebruik in geschreven tekstmateriaal
+
+			4.1.1.2 Vrouwen
+
+Eerder bespraken we de features die Mulac en Lundell (1994) vooropstelden om mannelijk taalgebruik te onderscheiden van dat van vrouwen. De features die zij vooropstelden voor vrouwelijk taalgebruik waren intensive adverbs, references to emotion, dependent clauses, sentence initial adverbials, oppositions, active voice verbs, uncertainty verbs en long mean length sentences. Van deze zeven features bleken vier features inderdaad meer door vrouwen gebruikt te worden, namelijk uncertainty verbs, references to emotion, mean length sentences en sentence initial adverbials. Naast de vooropgestelde features voor mannen en vrouwen selecteerden de onderzoekers ook enkele andere features, waarvan ze vooraf geen idee hadden of ze zouden kunnen bijdragen tot het onderscheiden van het gender van een auteur. Eén van deze features bleek opvallend meer door vrouwen gebruikt te worden, namelijk progressive verbs (Mulac & Lundell, 1994, p. 303)
+
+Een feature die niet opgenomen is in het onderzoek van Mulac en Lundell (1994), maar wel in het onderzoek van Argamon et al. (2003), is het gebruik van voornaamwoorden: “Overall, pronoun use is overwhelmingly more female than male in both fiction and nonfiction. … this pattern holds overall for each of first-person,  second-person and third-person pronouns in both fiction and nonfiction.” (Argamon et al., 2003, p. 327) Ook in het onderzoek van Biber et al. (1998) wordt het gebruik van voornaamwoorden naar voren geschoven. Zowel in de brieven van vrouwen uit de 20ste  eeuw, als in de brieven van vrouwen uit de 17de eeuw, werden meer voornaamwoorden gedetecteerd dan in de brieven van mannen. 
+
+Genderindicatoren voor vrouwelijk taalgebruik in geschreven tekstmateriaal
+Uncertainty verbs 
+Progressive verbs
+References to emotion
+Mean length sentences
+Sentence initial adverbials
+Pronoun use
+Tabel 2. Genderindicatoren voor vrouwelijke taalgebruik in geschreven tekstmateriaal
+	
+	4.2 Gender en ‘Computer-Mediated Communication’
+
+Met de opkomst van de computer ontstond een nieuw onderzoeksdomein voor taalkundigen, namelijk dat van de Computer-Mediated Communication (CMC). CMC staat voor menselijke communicatie via computers. De interactie kan zowel synchroon of asynchroon zijn. CMC omvat onder meer communicatie via social media, chatrooms, internetforums, e-mail, enz. Bij het ontstaan was er het optimistische geloof dat CMC zou zorgen voor een gelijkmaking van de genderrollen, maar al snel werd duidelijk dat de online communicatiemiddelen de offline genderverschillen weerspiegelen. In onderzoeken rond gender in CMC worden meer features naar voren gebracht, vaak omdat deze onderzoeken gebruik maken van grootschalige computerprogramma’s, maar ook omdat bij CMC niet enkel talige aspecten als feature kunnen worden gebruikt, maar ook communicatieve aspecten (Baron, 2004, pp. 405-406). 
+
+Het is in deze paper niet mogelijk alle features die deze programma’s gebruiken om gender te onderscheiden, uitvoerig te bespreken. Om die reden worden de meest kenmerkende features die in drie grootschalige onderzoeken rond gender en CMC besproken worden, voorgesteld. Dit zijn de onderzoeken van Peersman et al. (2011), Baron (2004) en Schwartz et al. (2013). Peersman et al. baseerden hun artikel op een Nederlandstalig corpus, Schwartz en Baron baseerden hun studies dan weer op een Engelstalig corpus. 
+
+		4.2.1 Genderindicatoren
+			4.2.1.1 Mannen
+
+Naomi Baron (2004) onderzocht enkele features, die werden onderverdeeld in twee categorieën, meer bepaald de categorie conversational scaffolding, bestaande uit turns, sequences, conversation length en de categorie lexical issues, bestaande uit abbreviations, acronyms, contractions en emoticons (Baron, 2004, pp. 408-413). Baron kwam tot de bevinding dat mannen meer samengetrokken vormen hanteerden in hun taalgebruik dan vrouwen: “Both males and females used higher percentages of contracted than uncontracted forms in there IM [instant messaging] conversations (e.g., using don’t rather than do not). However, males used a much greater proportion of contracted forms than did females.” (Baron, 2004, p. 415)
+
+Het onderzoek van Schwartz et al. (2013) was niet zozeer bedoeld om gender te voorspellen, maar eerder om de verschillen tussen mannen- en vrouwentaal in CMC  te verklaren en te begrijpen. Voor mannen kwamen als voornaamste features het gebruik van swear words, articles en object references naar voren. Dit zijn features die we eerder in deze paper al tegenkwamen voor het herkennen van mannelijk taalgebruik in geschreven teksten (Schwartz et al., 2013, p. 9).
+
+In het artikel van Peersman et al. (2011) grijpt men terug naar enkele voorgaande onderzoeken die features rond gender bestuderen. Voor mannen heeft men het over the use of determiners (determinatoren) en the use of numbers (gebruik van nummers). Ook hier zien we features uit onderzoeken over gender en geschreven taal terugkeren (Peersman et al., 2011, p. 38).
+
+Genderindicatoren voor mannelijk taalgebruik in CMC
+Contractions
+Determiners
+The use of numbers
+Swear words
+Object references
+Articles
+Tabel 3. Genderindicatoren voor mannelijk taalgebruik in CMC
+		
+		4.2.1.2 Vrouwen 
+
+In het eerder genoemde onderzoek van Baron (2004) werden voor vrouwen binnen de categorie  conversational scaffolding  als feature long turns naar voren geschoven: 
+
+	The only domain in which genders showed obvious variation is longest turns. … if we 	consider just the longest turn in each conversation … we find that female longest 	turns’ (27.6 words) were an average of 8 words lengthier than male ‘longest turns’ 
+	(19.6 words). (Baron, 2004, p. 414).
+
+Bij de categorie lexical issues bleek het gebruik van emoticons kenmerkend voor vrouwentaal in CMC.  Ook in het onderzoek van Schwartz et al. (2013) komt het gebruik van emoticons ter sprake als een feature voor vrouwen. Schwartz et al. (2013) merken wel op dat een studie van Huffaker & Calvert (2005) tegenstrijdige resultaten opleverde. Schwartz et al. relativeren deze tegenstrijdigheid echter, door te wijzen op het feit dat de studie van Huffaker & Calvert (2005) op weinig materiaal gebaseerd is. Daarnaast werd ook nog het gebruik van  first-person singular pronouns als voorname feature naar voren geschoven. Ook het onderzoek van Peersman et al. (2011) stelt dat de first person singular pronoun een goede indicator is voor het bepalen van gender. Peersman et al. stellen echter dat niet alleen de first person singular pronoun dit is, maar alle personal pronouns. Daarnaast zouden vrouwen ook meer gebruik maken van negations (Peersman et al., 2011, p. 38).
+
+Genderindicatoren voor vrouwelijk taalgebruik in CMC
+Emoticons
+(First-person singular) pronouns 
+Negations
+Long turns
+Tabel 4. Genderindicatoren voor vrouwelijk taalgebruik in CMC
+
+5. Besluit
+
+Na verschillende studies bestudeerd en vergeleken te hebben, kwamen voor geschreven tekstmateriaal volgende genderindicatoren voor mannen naar voren: references to quantity, locatives, determiners, elliptical sentences en judgmental adjectives. Drie van de vijf indicatoren bevestigen de stelling dat mannen een meer informatief taalgebruik hanteren dan vrouwen. Voor het herkennen van vrouwelijk taalgebruik in geschreven tekstmateriaal kwamen we tot volgende features: uncertainty verbs, progressive verbs, references to emotion, mean length sentences, sentence initial adverbials en pronoun use. De meeste van deze features bevestigen de stelling dat vrouwen een meer betrokken taalgebruik hanteren. Wanneer we keken naar mannelijke genderindicatoren in CMC, botsten we op contractions, determiners, the use of numbers, swear words, object references en articles. Ook in CMC blijkt mannelijk taalgebruik dus informatiever te zijn. Voor vrouwen zijn de genderindicatoren in CMC emoticons, pronouns, negations en long turns. Het gebruik van pronouns kwam ook terug in geschreven taal en toont eveneens aan dat vrouwelijk taalgebruik meer betrokken is. Emoticons, een element dat niet in geschreven tekstmateriaal voorkomt, toont ook aan dat het taalgebruik meer betrokken is. We kunnen besluiten dat er duidelijke gelijkenissen zijn tussen de genderindicatoren voor geschreven tekstmateriaal en voor online tekstmateriaal. 

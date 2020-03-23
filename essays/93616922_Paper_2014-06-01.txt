@@ -1,0 +1,91 @@
+﻿Inleiding
+
+Naar aanleiding van verontrustende berichten in de media in verband met de zwakke spelvaardigheid van studenten, bekijken we de verschillende soorten spelfouten die studenten maken. Er zijn dan wel geen harde cijfers over het feit dat studenten slechter spellen in vergelijking met hun vorige generatie, toch hebben vele docenten dit gevoel. Het spellingrapport van de Nederlandse Taalunie in 2010 meldt echter geen verandering in de spelvaardigheid. Door het feit dat onderzoekers spelling bij studenten telkens op een andere manier testen, is het natuurlijk wel moeilijk om een vergelijking te maken. Wat we wel zeker weten is dat studenten slechter spellen naarmate ze ouder worden. We bekijken in deze paper, naast de soorten spelfouten, ook de oorzaken voor een slechtere spelling ten opzichte van het begin van hun schoolcarrière. 
+
+2  Methode van het onderzoek van Vanderswalmen et al. 
+
+Door middel van een dictee testen Vanderswalmen et al. (2010) de spellingcapaciteiten van 2095 eerstejaarsstudenten in het eerste semester aan de hogescholen en de universiteiten van Gent, Brussel en Leuven. De gemiddelde leeftijd van de proefpersonen is 18,82 jaar. Dit dictee werd bovendien in verschillende studiedomeinen afgenomen om een representatief beeld te krijgen. Vanderswalmen et al. (2010) verdelen de studiedomeinen in drie grote groepen, namelijk onderwijs, handel en talen en tot slot gezondheidszorg. De spellingfouten die uit dit dictee kwamen, classificeren ze in vier verschillende categorieën. Een eerste categorie zijn de basisfouten, een tweede categorie zijn de aan de regels gerelateerde fouten. Vervolgens zijn er nog de aan het geheugen gerelateerde fouten en de “Non-Spelling-Related Errors”. Deze laatste categorie heeft niets met de spellingcapaciteiten van de studenten te maken, maar bevat woorden of delen van woorden die de studenten vergaten te schrijven gedurende het dictee. 
+
+
+
+3  Soorten spellingfouten
+
+Hieronder bespreken we enkel de basisfouten, de aan de regels gerelateerde fouten en de aan het geheugen gerelateerde fouten. De vierde categorie, “Non-Spelling-Related-Errors”, zoals weggelaten delen van woorden, laten we hier buiten beschouwing. Hoewel deze een groot deel uitmaken van het totale percentage fouten, bieden ze daarentegen geen representatief beeld over de spelvaardigheid bij studenten. 
+
+3.1  Basisfouten
+
+Een eerste type van fouten zijn de basisfouten. Dit zijn fouten bij woorden die taalgebruikers volgens de fonologie probleemloos zouden moeten kunnen redigeren. Een voorbeeld is het woord ‘aanzienlijk’, dat enkele studenten als ‘*aanzienelijk’ spelden. Deze woorden komen echter volledig overeen met de fonologische uitspraak. Bij jongeren of volwassenen met dyslexie komen dit soort fouten vaak voor . In deze categorie maken 637 studenten (30,5 %) geen fouten. 571 studenten of 27 % er van maken één fout. Tot slot is er nog een kleinere groep van 348 studenten (16,7 %) die twee fouten maken (Vanderswalmen et al., 2010). Hieruit kunnen we concluderen dat hoe hoger het aantal fouten is, het aantal studenten daalt. 
+	
+3.2  Fouten tegen de regels
+
+Een tweede type van fouten zijn fouten tegen de regels. Deze fouten maken studenten, omdat ze de regel niet kennen. Voorbeelden van zulke fouten zijn fouten tegen de werkwoorden en tegen de hoofdletters. Daarnaast maken studenten ook fouten tegen open en gesloten klinkers en tegen aaneen of los. De tussen-n en het liggend streepje zorgen bovendien ook vaak voor problemen. Om te verhelpen dat studenten deze fouten blijven maken, moeten ze hun kennis van de spellingregels eenvoudigweg bijschaven (Vanderswalmen et al., 2010; Berckmoes & Rombouts, 2009). Vanderswalmen et al. (2010) concluderen in hun onderzoek:
+
+In this case there was a normal distribution in relation to the number of errors (M = 15.74, SD = 6.79), that is, the number of students rose in direct proportion to the number of errors until a peak was reached with 150 students (7,2 %) who made 13 errors; after that peak, there was a decrease in the number of students who made such errors (p. 13) . 
+
+Hieruit kunnen we concluderen dat studenten relatief meer fouten tegen de regels maken dan dat ze basisfouten maken. Hoe hoger het aantal fouten bij de basisfouten is, hoe kleiner is de groep studenten. In het geval van de fouten tegen de regels stijgt het aantal studenten in verhouding met het aantal fouten totdat we een piek van dertien fouten bereiken. Na die piek daalt het aantal studenten in verhouding met het aantal fouten. Het foutenpercentage is in deze categorie in vergelijking met de basisfouten dus opvallend hoog.  
+
+3.3  Aan het geheugen gerelateerde fouten
+
+Niet enkel spellingregels vormen een obstakel om correct te spellen. Sommige woorden moeten taalgebruikers simpelweg ‘kennen’. Een taalgebruiker moet door middel van zijn visueel geheugen kunnen beslissen of een woord met het grafeem [au] of [ou], [ei] of [ij] geschreven wordt. Ook de spelling van leenwoorden of vreemde woorden vraagt hulp aan het visuele geheugen van de taalgebruiker. Voor het spellen van deze woorden is er dus lexicale kennis nodig, aangezien de relatie tussen een foneem en een grafeem in het geval van woorden zoals ‘mail’ en ‘rijden’ geen een-op-eenrelatie is (Vanderswalmen et al., 2010).
+
+De mediaan van de fouten ligt hier op 1,36 met een standaardafwijking van 1,70 procent. De foutenlast van de studenten ligt in deze categorie dus beduidend lager t.o.v. de aan de regels gerelateerde fouten. 
+
+
+4  Andere onderzoeken naar de spelvaardigheid bij studenten
+
+In de vorige paragraaf hebben we enkel de resultaten van één welbepaald onderzoek besproken, namelijk het onderzoek van Vanderswalmen et al. (2010). In de loop van het laatste decennium onderzochten ook andere instellingen de spelvaardigheid bij studenten. Hieronder bespreken we nog enkele onderzoeken om aan te tonen dat er wel degelijk een spellingprobleem bij studenten heerst. 
+
+Ook andere onderzoeken naar de spelvaardigheid bij studenten tonen dezelfde fouten die Vanderswalmen et al. (2010) in hun onderzoek al aantoonden. Het Huis van het Nederlands Brussel (2006) laat zien dat studenten veel fouten maken tegen de werkwoorden. Dit zijn dus aan de regels gerelateerde fouten. 22 % van de studenten slagen erin om tegen de werkwoordregel te zondigen in een motivatiebrief (Berckmoes & Rombouts, 2009). Een voorbeeld van zo’n werkwoordfout is ‘ik*rijdt’. 
+
+Grezel (2007) nam vervolgens de instaptoets voor toekomstige leerkrachten aan de pedagogische academie van het basisonderwijs (pabo) in Nederland onder loep. 68 % van de studenten slagen niet voor deze instaptoets. Sommige leerkrachten en taalspecialisten bekijken deze test echter kritisch. Ze menen dat deze test te moeilijke en te onbenullige onderdelen zou bevatten zoals woordafbreking. Bovendien ligt de vereiste norm van 78 % volgens hen te hoog (Grezel, 2007; Berckmoes & Rombouts, 2009).
+
+Tot slot stellen Daems, Rymenans en Venstermans (2010) in hun onderzoek vast dat er aan het einde van het secundair onderwijs zeer zwakke, maar tegelijk ook zeer sterke spellers zijn. Ze spreken in dit onderzoek over een continuüm. Uiteindelijk is er geen overbezorgde bekommernis over een slechte spelvaardigheid van onze jeugd. Ook zij menen dat spelling op het einde van de middelbare school niet is wat het moet zijn. 
+
+ 5  Redenen voor de verontrustende spellingresultaten    
+
+De besproken onderzoeken stellen vast dat het niet rooskleurig gesteld is met de spelling van onze studenten. Ook al is er een continuüm van sterke en zwakke spellers, de spelling op het einde van de middelbare school is niet wat het moet zijn. Hieronder bespreken we de mogelijke redenen voor die zwakke spellingcapaciteiten. 
+
+5.1  Taalbeleid in het onderwijs
+
+In het boek Ze kunnen niet meer spellen. Kan de taalunie er wat aan doen? staat de Nederlandse Taalunie (NU) (2011) stil bij het feit dat leerlingen het spellingssysteem eerder moeten kennen dan dat ze het moeten toepassen. Terwijl in het basisonderwijs de nadruk ligt op het inoefenen van de spelling, ligt in het voortgezet secundair onderwijs de nadruk eerder op het kennen van de spellingregels. De leerlingen leren in het secundair onderwijs hoe het moet, maar de praktische kant van het spellen, krijgen ze niet voorgeschoteld. Dat die praktische kennis een minder belangrijke rol speelt, blijkt verder uit het feit dat er in de Nederlandse eindexamens enkel punten worden afgetrokken voor spelling binnen het vak Nederlands. Er is een soort tolerantie ten opzichte van spelfouten ontstaan (NU, 2011). Buiten het studiedomein taal gaat er dus nog te weinig aandacht uit naar spelling (Daems et al., 2010).
+
+Naast het feit dat de klemtoon niet meer op de spellingbeheersing wordt gelegd, gaat er vervolgens in het secundair onderwijs meer en meer aandacht uit naar het leesonderwijs. Lezen wordt hier vooral vanuit de functioneel-communicatieve invalshoek gezien. Zowel voor het vak Nederlands als voor andere schoolvakken én in het alledaagse leven is het verwerken van een grote hoeveelheid informatie van belang. Daarnaast draagt lezen ook bij tot de culturele-maatschappelijke ontplooiing van studenten. Schrijven, spelling, grammatica en woordenschat worden hierdoor minder beklemtoond (Bonset & Braaksma, 2008). 
+
+Het is bovendien de taak van het onderwijs om jongeren ervan bewust te maken dat er verschillende registers zijn. Zolang een jongere schrijft naar een bekende via de nieuwe media zoals chat en sms, kan hij een informeel register gebruiken. De leerling of student schrijft dan vaak in een spreektalige vorm. Een voorbeeld hiervan is: seg, wa goan we ete? In het onderwijs moeten leerkrachten en docenten jongeren bewust maken dat ze de informele communicatie van de formele moeten scheiden. Wie schrijft voor een publiek moet zich nog steeds aan de regels houden, dus ook aan de voorgeschreven spelling. 
+
+Tot slot moeten leerkrachten hun leerlingen in het secundair onderwijs hun geschreven teksten leren reviseren en redigeren. Leerlingen en studenten schrijven niet meer met pen en papier. De computer is een handig hulpmiddel. Zo een afgeleverde tekst ziet er meteen netjes uit en de meeste spelfouten worden er door een spellingcontrole uitgehaald. Het is dus zeker belangrijk dat leerlingen en studenten zulke geschreven teksten kritisch nakijken (NU, 2011). Dit is iets wat zeker binnen het vak Nederlands op het vlak van spelfouten zou moeten gebeuren, stelt Bonset (2010). Voor andere vakken is dit gecompliceerder. Deze maatregel, een grondige revisie van geschreven teksten, is  voor alle schoolvakken pas mogelijk als er een doordacht taalbeleid is (Bonset, 2010). 
+
+5.2  Attitude tegenover spelling
+
+Ook de attitude ten aanzien van spelling bij jongeren laat het aan de wensen over. Giesbers getuigt in het tijdschrift Onze Taal dat er veel minder aandacht naar schrijfwerk gaat. “Ze zijn zo vluchtig. Ze leveren schrijfopdrachten in waarvan ik zo kan zien dat ze die de avond tevoren na het voetballen op tv nog even in elkaar geflanst hebben. (p. 150)” Ook de Wit en Rooijackers van het Sectiebestuur Nederlands van de Vereniging van Leraren in Levende Talen beamen dat de jongeren een nonchalante kijk hebben op spelling. Volgens hen zien zij taal als een communicatiemiddel waarbij correct taalgebruik veel minder op de voorgrond komt te staan (Grezel, 2007).
+
+Hoewel docenten niet tevreden zijn met de attitude van jongeren ten opzichte van de spelling concluderen Vrijders, Vanderswalmen en Beeckman (2007) dat studenten veel vertrouwen hebben in hun spelvaardigheid. Dat blijkt uit een enquête van de Arteveldeschool in Gent. De cijfers tonen aan dat slechts 1 op 5 studenten zijn tekst naleest (Vrijders et al., 2007). Enkel anderstalige studenten maken zich zorgen over hun spelling bij schriftelijke taken (Berckmoes & Rombouts, 2009). 
+
+Tot slot verdwijnt de norm dat er aan schriftelijke communicatie bepaalde conventies zijn verbonden, zoals spelling meer en meer uit onze maatschappij. Er is een nieuw soort communicatie gekomen waarbij de boodschap belangrijker is dan de manier waarop de zender deze boodschap overbrengt. We kunnen dus wel degelijk stellen dat jongeren een nonchalante houding aannemen ten opzichte van spelling (NU, 2011). 
+
+5.3  Communicatietechnologie: de sms
+
+Jongeren schrijven veel meer dan ooit tevoren. Dit komt deels door de moderne communicatietechnologie waaronder de gsm valt. Of sms-taal een negatief of een positief effect heeft op de spelling van studenten moeten we in het midden laten. Powell en Dixon (2011) vertrokken voor hun onderzoek vanuit de vraag of smst-taal een negatieve invloed heeft op de spelling van volwassen. Enkele voorbeelden van sms-taal zijn: ‘aQr8’ voor ‘accurate’, ‘bz’ voor ‘busy’ en ‘XtrEm’ voor ‘extreme’. Het gaat hier duidelijk om opzettelijk verkorte woorden en niet om per ongeluk fout gespelde woorden. Powell en Dixon spreken van “a special form of phonetically plausible misspelling” (p.63). De resultaten van dit onderzoek stellen vast dat sms-taal soms een positieve invloed heeft op de spelvaardigheid (Powell & Dixon, 2011). Deze resultaten komen wel niet overeen met de vorige onderzoeken waarbij de onderzoekers aantoonden dat een fout gespeld woord een negatief effect heeft op de verdere spelling (Brown, 1988; Dixon & Kaminska, 1997). Toch is het belangrijk om te benadrukken dat het hier om opzettelijk verkorte woorden gaat. Het gaat hier bovendien ook over volwassenen. Verder onderzoek zal dus over de eventueel negatieve of positieve effecten van sms-taal op de spelling bij jongeren uitsluitsel moeten geven.
+
+Toch kunnen we deze moderne communicatietechnologie associëren met een attitudeverandering. Door middel van die nieuwe registers, die door verschillende media zoals de sms ontstaan, kunnen studenten het verschil niet meer tussen een formele en een informele context onderscheiden. Dit argument sluit dan weer aan bij datgene wat in de vorige paragraaf over de attitude van studenten gezegd werd. 
+
+6  Conclusie
+
+Studenten maken het meeste spellingfouten tegen woorden die berusten op een regel. Het percentage fouten qua basisfouten en de aan het geheugen gerelateerde fouten blijft eerder laag. Een nieuw doorgedreven taalbeleid waarbij er meer nadruk ligt op de praktische kant van het spellen en waarbij spelling de overhand neemt op het lezen is al een deel van de oplossing om betere resultaten te  krijgen. Bovendien moeten leerlingen in het secundair onderwijs kennis maken met de verschillende registers in geschreven taal. Leerkrachten moeten leerlingen vervolgens bewust maken van het belang van een tekst na te lezen. Dit sluit dan weer aan bij de nonchalante houding die leerlingen t.o.v. spelling hebben. Of sms-taal een slechte invloed heeft op de spelling van studenten, blijft tot slot nog een vraagteken. Wel heeft sms’en een negatieve invloed op de attitude die studenten hebben tegenover spelling. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
