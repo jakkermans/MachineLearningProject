@@ -1,4 +1,4 @@
-# MachineLearningProjecttz
+# MachineLearningProject
 Repository for the final project of Machine Learning Project
 
 The scipt preprocessor.py should be run as follows:<br/>
