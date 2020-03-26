@@ -1,3 +1,13 @@
+#!/usr/bin/python3
+"""
+File name:  preprocessor.py
+Course:     Machine Learning Project
+Authors:    Martijn E.N.F.L. Schendstok (s2688174)
+            Jannick J.C. Akkermans      (s3429075)
+            Niels Westeneng             (s3469735)
+Date:       March 2020
+"""
+
 from os import listdir # to read files
 from os.path import isfile, join # to read files
 from nltk.tokenize import word_tokenize
