@@ -3,6 +3,8 @@ from os.path import isfile, join # to read files
 from nltk.tokenize import word_tokenize
 import sys
 import re
+from sklearn.preprocessing import MultiLabelBinarizer
+from sklearn.naive_bayes import MultinomialNB
 
 def get_filenames_in_folder(folder):
     return [f for f in listdir(folder) if isfile(join(folder, f))] #Return a list of files in a certain folder
@@ -35,7 +37,6 @@ def read_files(categories, author_data):
                     for i in range(len(scores)):
                         if int(scores[i]) >= 50:
                             personality_traits.append(traits[i])
-
                     feats.append((use_tokens, personality_traits))
                     # print len(tokens)
                     num_files += 1
@@ -78,15 +79,91 @@ def read_authordata(authorfile):
 
     return authors
 
+def get_fit(files):
+    """
+    This function creates the x and y lists used in the .fit function of the MultinomialNB classifier.
+    :param files: all data of the files, created by read_file
+    :return: Labels (0 or 1 per sentence) per personality type and all sentences in list feats
+    """
+    feats = []
+    label_open = []
+    label_extra = []
+    label_con = []
+    label_neu = []
+    label_agree = []
+    for file in files:
+        tokens = file[0]
+        personalities = file[1]
+        feats.append(tokens)
+        if "Openness" in personalities:
+            label_open.append(1)
+        else:
+            label_open.append(0)
+        if "Concientiousness" in personalities:
+            label_con.append(1)
+        else:
+            label_con.append(0)
+        if "Extravertness" in personalities:
+            label_extra.append(1)
+        else:
+            label_extra.append(0)
+        if "Agreeableness" in personalities:
+            label_agree.append(1)
+        else:
+            label_agree.append(0)
+        if "Neuroticism" in personalities:
+            label_neu.append(1)
+        else:
+            label_neu.append(0)
+    return label_open, label_extra, label_con, label_neu, label_agree, feats
+
+def get_classifier(label_open, label_extra, label_con, label_neu, label_agree, x_feats):
+    """
+    This function creates all classifier and fills them with data, all per personality type.
+    :param files: x_feats and y labels created by get_fit
+    :return: A classifier for every personality type
+    """
+    classifier_open = MultinomialNB()
+    classifier_extra = MultinomialNB()
+    classifier_con = MultinomialNB()
+    classifier_neu = MultinomialNB()
+    classifier_agree = MultinomialNB()
+    classifier_open.fit(x_feats[:450], label_open[:450])
+    classifier_extra.fit(x_feats[:450], label_extra[:450])
+    classifier_con.fit(x_feats[:450], label_con[:450])
+    classifier_neu.fit(x_feats[:450], label_neu[:450])
+    classifier_agree.fit(x_feats[:450], label_agree[:450])
+    return classifier_open, classifier_extra, classifier_con, classifier_neu, classifier_agree
+
+def evaluation(classifier_open, classifier_extra, classifier_con, classifier_neu, classifier_agree, x_feats, label_open, label_extra, label_con, label_neu, label_agree):
+    """
+    This function print the accuracy scores of the testing data.
+    :param files: all classifiers created by classifier(), x_feats, and all y-labels created by get_fit
+    :return: Prints the accuracies
+    """
+    print("Accuracy Openness:", classifier_open.score(x_feats[450:], label_open[450:]))
+    print("Accuracy Extravertness:", classifier_extra.score(x_feats[450:], label_extra[450:]))
+    print("Accuracy Concientiousness:", classifier_con.score(x_feats[450:], label_con[450:]))
+    print("Accuracy Neuroticism:", classifier_neu.score(x_feats[450:], label_neu[450:]))
+    print("Accuracy Agreeableness:", classifier_agree.score(x_feats[450:], label_agree[450:]))
+
 def main():
     args = []
     for arg in sys.argv[1:]:
         args.append(arg)
 
     author_data = read_authordata(args[0])
-    feats = read_files(args[1:], author_data)
-    for feat in feats:
-        print('{} {}'.format(feat[0], feat[1]))
+    files = read_files(args[1:], author_data)
+    label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files)
+
+    mlb = MultiLabelBinarizer()
+    x_feats = mlb.fit_transform(feats)
+
+    classifier_open, classifier_extra, classifier_con, classifier_neu, classifier_agree = get_classifier(label_open, label_extra, label_con, label_neu, label_agree, x_feats)
+    evaluation(classifier_open, classifier_extra, classifier_con, classifier_neu, classifier_agree, x_feats, label_open, label_extra, label_con, label_neu, label_agree)
+
+
+
 
 
 if __name__ == "__main__":
