@@ -184,11 +184,19 @@ def evaluation(classifier_open, classifier_extra, classifier_con, classifier_neu
     :param files: all classifiers created by classifier(), x_feats, and all y-labels created by get_fit
     :return: Prints the accuracies
     """
-    print("Accuracy Openness:", classifier_open.score(x_feats[450:], label_open[450:]))
-    print("Accuracy Extravertness:", classifier_extra.score(x_feats[450:], label_extra[450:]))
-    print("Accuracy Concientiousness:", classifier_con.score(x_feats[450:], label_con[450:]))
-    print("Accuracy Neuroticism:", classifier_neu.score(x_feats[450:], label_neu[450:]))
-    print("Accuracy Agreeableness:", classifier_agree.score(x_feats[450:], label_agree[450:]))
+
+    open_acc = classifier_open.score(x_feats[450:], label_open[450:])
+    extra_acc = classifier_extra.score(x_feats[450:], label_extra[450:])
+    conc_acc = classifier_con.score(x_feats[450:], label_con[450:])
+    neuro_acc = classifier_neu.score(x_feats[450:], label_neu[450:])
+    agree_acc = classifier_agree.score(x_feats[450:], label_agree[450:])
+
+    print("Accuracy Openness:", open_acc)
+    print("Accuracy Extravertness:", extra_acc)
+    print("Accuracy Concientiousness:", conc_acc)
+    print("Accuracy Neuroticism:", neuro_acc)
+    print("Accuracy Agreeableness:", agree_acc)
+    print("Average Accuracy:", round(sum((open_acc, extra_acc, conc_acc, neuro_acc, agree_acc))/5,2))
 
 def main():
     args = []
