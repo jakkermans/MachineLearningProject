@@ -11,15 +11,19 @@ Date:       March 2020
 from os import listdir # to read files
 from os.path import isfile, join # to read files
 from nltk.tokenize import word_tokenize
+from nltk.probability import FreqDist, ConditionalFreqDist
+from nltk.collocations import BigramCollocationFinder
+from nltk.metrics import BigramAssocMeasures
 import sys
 import re
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.naive_bayes import MultinomialNB
+from collections import defaultdict
 
 def get_filenames_in_folder(folder):
     return [f for f in listdir(folder) if isfile(join(folder, f))] #Return a list of files in a certain folder
 
-def read_files(categories, author_data):
+def read_files(categories, author_data, traits):
     """
     This function reads in all the files from a folder. For each file, the function tokenizes the data and lowercases each token.
     The author of the file is derived from the dictionary of authors. For each of the OCEAN scores for this author, the function checks whether
@@ -29,7 +33,6 @@ def read_files(categories, author_data):
     :return: List with read data, each entry in the form (tokenized_data, personality_traits)
     """
     feats = list()
-    traits = ['Openness', 'Concientiousness', 'Extravertness', 'Agreeableness', 'Neuroticism']
     print("\n##### Reading files...")
     for category in categories:
         files = get_filenames_in_folder(category)
@@ -89,7 +92,36 @@ def read_authordata(authorfile):
 
     return authors
 
-def get_fit(files):
+
+def high_information_words(files, score_fn=BigramAssocMeasures.chi_sq, min_score = 30):
+    word_dict = FreqDist()
+    ocean_word_dict = ConditionalFreqDist()
+
+    for file in files:
+        #For each token, add 1 to the overall FreqDist and 1 to the ConditionalFreqDist under the current personality trait
+        for token in file[0]:
+            for trait in file[1]:
+                ocean_word_dict[trait][token] += 1
+            word_dict[token] += 1
+
+    n_xx = ocean_word_dict.N() #Get the total number of recordings in the ConditionalFreqDist
+    high_info_words = set()
+
+    for condition in ocean_word_dict.conditions():
+        n_xi = ocean_word_dict[condition].N() #Get the number of recordings for each personality trait
+        word_scores = defaultdict(int)
+
+        for word, n_ii in ocean_word_dict[condition].items():
+            n_ix = word_dict[word] #Get total number of recordings of a token
+            score = score_fn(n_ii, (n_ix, n_xi), n_xx)
+            word_scores[word] = score
+
+        bestwords = [word for word, score in word_scores.items() if score >= min_score]
+        high_info_words |= set(bestwords)
+
+        return high_info_words
+
+def get_fit(files, high_info_words):
     """
     This function creates the x and y lists used in the .fit function of the MultinomialNB classifier.
     :param files: all data of the files, created by read_file
@@ -103,8 +135,9 @@ def get_fit(files):
     label_agree = []
     for file in files:
         tokens = file[0]
+        used_tokens = [token for token in tokens if token in high_info_words]
         personalities = file[1]
-        feats.append(tokens)
+        feats.append(used_tokens)
         if "Openness" in personalities:
             label_open.append(1)
         else:
@@ -163,8 +196,10 @@ def main():
         args.append(arg)
 
     author_data = read_authordata(args[0])
-    files = read_files(args[1:], author_data)
-    label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files)
+    traits = ['Openness', 'Concientiousness', 'Extravertness', 'Agreeableness', 'Neuroticism']
+    files = read_files(args[1:], author_data, traits)
+    high_info = high_information_words(files)
+    label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files, high_info)
 
     mlb = MultiLabelBinarizer()
     x_feats = mlb.fit_transform(feats)
