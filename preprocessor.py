@@ -97,9 +97,10 @@ def read_authordata(authorfile):
     return authors
 
 
-def high_information_words(files, score_fn=BigramAssocMeasures.chi_sq, min_score = 30):
+def high_information_words(files, score_fn=BigramAssocMeasures.chi_sq, min_score = 50):
     word_dict = FreqDist()
     ocean_word_dict = ConditionalFreqDist()
+    hiw_categories = []
 
     for file in files:
         #For each token, add 1 to the overall FreqDist and 1 to the ConditionalFreqDist under the current personality trait
@@ -122,8 +123,9 @@ def high_information_words(files, score_fn=BigramAssocMeasures.chi_sq, min_score
 
         bestwords = [word for word, score in word_scores.items() if score >= min_score]
         high_info_words |= set(bestwords)
+        hiw_categories.append((condition, bestwords[:10]))
 
-        return high_info_words
+    return high_info_words, hiw_categories
 
 
 def get_fit(files, high_info_words):
@@ -287,6 +289,12 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
     print("Total Accuracy Agreeableness:", round(tot_agree_acc/n, 2))
     print("Total Average Accuracy:", round(tot_av_acc/n, 2), "\n")
 
+def get_high_information_words(hiw_categories):
+    print("Best high information words per personality trait")
+    print("{0:^20} {1:^20} {2:^20} {3:^20} {4:^20}".format(hiw_categories[0][0], hiw_categories[1][0], hiw_categories[2][0], hiw_categories[3][0], hiw_categories[4][0]))
+    for open_hiw, extra_hiw, conc_hiw, neuro_hiw, agree_hiw in zip(hiw_categories[0][1], hiw_categories[1][1], hiw_categories[2][1], hiw_categories[3][1], hiw_categories[4][1]):
+        print("{0:^20} {1:^20} {2:^20} {3:^20} {4:^20}".format(open_hiw, agree_hiw, conc_hiw, neuro_hiw, agree_hiw))
+
 
 def main():
     args = []
@@ -296,10 +304,12 @@ def main():
     author_data = read_authordata(args[0])
     traits = ['Openness', 'Concientiousness', 'Extravertness', 'Agreeableness', 'Neuroticism']
     files = read_files(args[1:], author_data, traits)
-    high_info = high_information_words(files)
+    high_info, hiw_categories = high_information_words(files, min_score=15)
     label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files, high_info)
 
     n_cross_validation(10, label_open, label_extra, label_con, label_neu, label_agree, feats)
+
+    get_high_information_words(hiw_categories)
 
 
 if __name__ == "__main__":

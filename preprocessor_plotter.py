@@ -19,10 +19,13 @@ import re
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.naive_bayes import MultinomialNB
 from collections import defaultdict
+import numpy
 import matplotlib.pyplot as plt
+
 
 def get_filenames_in_folder(folder):
     return [f for f in listdir(folder) if isfile(join(folder, f))] #Return a list of files in a certain folder
+
 
 def read_files(categories, author_data, traits):
     """
@@ -66,6 +69,7 @@ def read_files(categories, author_data, traits):
     print("  Total, %i files read" % (len(feats)))
     return feats
 
+
 def read_authordata(authorfile):
     """
     This function reads in all the author data. Whenever the country of the author is The Netherlands or South Africa, it is changed to
@@ -94,9 +98,10 @@ def read_authordata(authorfile):
     return authors
 
 
-def high_information_words(files, score_fn=BigramAssocMeasures.chi_sq, min_score = 5):
+def high_information_words(files, score_fn=BigramAssocMeasures.chi_sq, min_score = 50):
     word_dict = FreqDist()
     ocean_word_dict = ConditionalFreqDist()
+    hiw_categories = []
 
     for file in files:
         #For each token, add 1 to the overall FreqDist and 1 to the ConditionalFreqDist under the current personality trait
@@ -119,8 +124,10 @@ def high_information_words(files, score_fn=BigramAssocMeasures.chi_sq, min_score
 
         bestwords = [word for word, score in word_scores.items() if score >= min_score]
         high_info_words |= set(bestwords)
+        hiw_categories.append((condition, bestwords[:10]))
 
-        return high_info_words
+    return high_info_words, hiw_categories
+
 
 def get_fit(files, high_info_words):
     """
@@ -161,6 +168,7 @@ def get_fit(files, high_info_words):
             label_neu.append(0)
     return label_open, label_extra, label_con, label_neu, label_agree, feats
 
+
 def get_classifier(label_open, label_extra, label_con, label_neu, label_agree, x_feats):
     """
     This function creates all classifier and fills them with data, all per personality type.
@@ -172,66 +180,151 @@ def get_classifier(label_open, label_extra, label_con, label_neu, label_agree, x
     classifier_con = MultinomialNB()
     classifier_neu = MultinomialNB()
     classifier_agree = MultinomialNB()
-    classifier_open.fit(x_feats[:450], label_open[:450])
-    classifier_extra.fit(x_feats[:450], label_extra[:450])
-    classifier_con.fit(x_feats[:450], label_con[:450])
-    classifier_neu.fit(x_feats[:450], label_neu[:450])
-    classifier_agree.fit(x_feats[:450], label_agree[:450])
+    classifier_open.fit(x_feats, label_open)
+    classifier_extra.fit(x_feats, label_extra)
+    classifier_con.fit(x_feats, label_con)
+    classifier_neu.fit(x_feats, label_neu)
+    classifier_agree.fit(x_feats, label_agree)
     return classifier_open, classifier_extra, classifier_con, classifier_neu, classifier_agree
+
 
 def evaluation(classifier_open, classifier_extra, classifier_con, classifier_neu, classifier_agree, x_feats, label_open, label_extra, label_con, label_neu, label_agree):
     """
     This function print the accuracy scores of the testing data.
     :param files: all classifiers created by classifier(), x_feats, and all y-labels created by get_fit
-    :return: Prints the accuracies
+    :return: Prints the accuracies and returns them too
     """
 
-    open_acc = classifier_open.score(x_feats[450:], label_open[450:])
-    extra_acc = classifier_extra.score(x_feats[450:], label_extra[450:])
-    conc_acc = classifier_con.score(x_feats[450:], label_con[450:])
-    neuro_acc = classifier_neu.score(x_feats[450:], label_neu[450:])
-    agree_acc = classifier_agree.score(x_feats[450:], label_agree[450:])
-    avg_acc = round(sum((open_acc, extra_acc, conc_acc, neuro_acc, agree_acc))/5,2)
+    open_acc = classifier_open.score(x_feats, label_open)
+    extra_acc = classifier_extra.score(x_feats, label_extra)
+    conc_acc = classifier_con.score(x_feats, label_con)
+    neuro_acc = classifier_neu.score(x_feats, label_neu)
+    agree_acc = classifier_agree.score(x_feats, label_agree)
+    av_acc = sum((open_acc, extra_acc, conc_acc, neuro_acc, agree_acc))/5
 
     print("Accuracy Openness:", open_acc)
     print("Accuracy Extravertness:", extra_acc)
     print("Accuracy Concientiousness:", conc_acc)
     print("Accuracy Neuroticism:", neuro_acc)
     print("Accuracy Agreeableness:", agree_acc)
-    print("Average Accuracy:", avg_acc)
+    print("Average Accuracy:", round(av_acc,2), "\n")
 
-    return avg_acc
+    return open_acc, extra_acc, conc_acc, neuro_acc, agree_acc, av_acc
+
+
+def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_agree, feats):
+    """
+    This function does the cross validation. It prints the accuracies in the end
+    :param n: amount of cross validations, all x and y values as labels or feats.
+    :return: Prints total accuracies in the end
+    """
+    mlb = MultiLabelBinarizer()
+    x_feats = mlb.fit_transform(feats)
+    gap = int(len(x_feats) / n)
+    tot_open_acc = tot_extra_acc = tot_conc_acc = tot_neuro_acc = tot_agree_acc = tot_av_acc = 0
+
+    for i in range(n):
+        print("Test ", i + 1, "\n")
+        i1 = i * gap
+        i2 = (i + 1) * gap
+        if i == 0:
+            x_train = x_feats[i2:]
+            open_train = label_open[i2:]
+            extra_train = label_extra[i2:]
+            con_train = label_con[i2:]
+            neu_train = label_neu[i2:]
+            agree_train = label_agree[i2:]
+            x_test = x_feats[:i2]
+            open_test = label_open[:i2]
+            extra_test = label_extra[:i2]
+            con_test = label_con[:i2]
+            neu_test = label_neu[:i2]
+            agree_test = label_agree[:i2]
+        elif i == (n - 1):
+            x_train = x_feats[:i1]
+            open_train = label_open[:i1]
+            extra_train = label_extra[:i1]
+            con_train = label_con[:i1]
+            neu_train = label_neu[:i1]
+            agree_train = label_agree[:i1]
+            x_test = x_feats[i1:]
+            open_test = label_open[i1:]
+            extra_test = label_extra[i1:]
+            con_test = label_con[i1:]
+            neu_test = label_neu[i1:]
+            agree_test = label_agree[i1:]
+        else:
+            x_train = numpy.concatenate((x_feats[:i1], x_feats[i2:]))
+            open_train = label_open[:i1] + label_open[i2:]
+            extra_train = label_extra[:i1] + label_extra[i2:]
+            con_train = label_con[:i1] + label_con[i2:]
+            neu_train = label_neu[:i1] + label_neu[i2:]
+            agree_train = label_agree[:i1] + label_agree[i2:]
+            x_test = x_feats[i1:i2]
+            open_test = label_open[i1:i2]
+            extra_test = label_extra[i1:i2]
+            con_test = label_con[i1:i2]
+            neu_test = label_neu[i1:i2]
+            agree_test = label_agree[i1:i2]
+        classifier_open, classifier_extra, classifier_con, classifier_neu, classifier_agree = get_classifier(open_train,
+                                                                                                             extra_train,
+                                                                                                             con_train,
+                                                                                                             neu_train,
+                                                                                                             agree_train,
+                                                                                                             x_train)
+        open_acc, extra_acc, conc_acc, neuro_acc, agree_acc, av_acc = evaluation(classifier_open, classifier_extra,
+                                                                                 classifier_con, classifier_neu,
+                                                                                 classifier_agree, x_test,
+                                                                                 open_test, extra_test, con_test,
+                                                                                 neu_test, agree_test)
+        tot_open_acc += open_acc
+        tot_extra_acc += extra_acc
+        tot_conc_acc += conc_acc
+        tot_neuro_acc += neuro_acc
+        tot_agree_acc += agree_acc
+        tot_av_acc += av_acc
+    print("Total Accuracy Openness:", round(tot_open_acc/n,2))
+    print("Total Accuracy Extravertness:", round(tot_extra_acc/n, 2))
+    print("Total Accuracy Concientiousness:", round(tot_conc_acc/n, 2))
+    print("Total Accuracy Neuroticism:", round(tot_neuro_acc/n, 2))
+    print("Total Accuracy Agreeableness:", round(tot_agree_acc/n, 2))
+    print("Total Average Accuracy:", round(tot_av_acc/n, 2), "\n")
+
+    return tot_av_acc/n
+
+def get_high_information_words(hiw_categories):
+    print("Best high information words per personality trait")
+    print("{0:^20} {1:^20} {2:^20} {3:^20} {4:^20}".format(hiw_categories[0][0], hiw_categories[1][0], hiw_categories[2][0], hiw_categories[3][0], hiw_categories[4][0]))
+    for open_hiw, extra_hiw, conc_hiw, neuro_hiw, agree_hiw in zip(hiw_categories[0][1], hiw_categories[1][1], hiw_categories[2][1], hiw_categories[3][1], hiw_categories[4][1]):
+        print("{0:^20} {1:^20} {2:^20} {3:^20} {4:^20}".format(open_hiw, agree_hiw, conc_hiw, neuro_hiw, agree_hiw))
+
 
 def main():
     args = []
+    accs = []
+    indices = []
     for arg in sys.argv[1:]:
         args.append(arg)
 
     author_data = read_authordata(args[0])
     traits = ['Openness', 'Concientiousness', 'Extravertness', 'Agreeableness', 'Neuroticism']
     files = read_files(args[1:], author_data, traits)
-    accs = []
-    indices = []
     for i in range(5,101):
+        print("Test with threshold score {}".format(i))
         indices.append(i)
-        high_info = high_information_words(files, min_score=i)
+        high_info, hiw_categories = high_information_words(files, min_score=i)
         label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files, high_info)
 
-        mlb = MultiLabelBinarizer()
-        x_feats = mlb.fit_transform(feats)
+        avg_acc = n_cross_validation(10, label_open, label_extra, label_con, label_neu, label_agree, feats)
+        accs.append(avg_acc)
 
-        classifier_open, classifier_extra, classifier_con, classifier_neu, classifier_agree = get_classifier(label_open, label_extra, label_con, label_neu, label_agree, x_feats)
-        acc = evaluation(classifier_open, classifier_extra, classifier_con, classifier_neu, classifier_agree, x_feats, label_open, label_extra, label_con, label_neu, label_agree)
-        accs.append(acc)
-
+    #get_high_information_words(hiw_categories)
     plt.plot(indices, accs)
     plt.xlabel('Threshold score')
     plt.ylabel('Average accuracy')
     plt.title('Average accuracy for different threshold scores')
     plt.show()
     plt.savefig('acc_threshold.png')
-
-
 
 
 if __name__ == "__main__":
