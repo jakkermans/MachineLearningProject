@@ -122,8 +122,9 @@ def high_information_words(files, score_fn=BigramAssocMeasures.chi_sq, min_score
             word_scores[word] = score
 
         bestwords = [word for word, score in word_scores.items() if score >= min_score]
+        bw = list({k for k,v in sorted(word_scores.items(), key=lambda x: x[1], reverse=True)})
         high_info_words |= set(bestwords)
-        hiw_categories.append((condition, bestwords[:10]))
+        hiw_categories.append((condition, bw[:10]))
 
     return high_info_words, hiw_categories
 
