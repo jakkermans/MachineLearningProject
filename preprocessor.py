@@ -8,8 +8,8 @@ Authors:    Martijn E.N.F.L. Schendstok (s2688174)
 Date:       March 2020
 """
 
-from os import listdir # to read files
-from os.path import isfile, join # to read files
+from os import listdir  # to read files
+from os.path import isfile, join  # to read files
 from nltk.tokenize import word_tokenize
 from nltk.probability import FreqDist, ConditionalFreqDist
 from nltk.collocations import BigramCollocationFinder
@@ -23,7 +23,7 @@ import numpy
 
 
 def get_filenames_in_folder(folder):
-    return [f for f in listdir(folder) if isfile(join(folder, f))] #Return a list of files in a certain folder
+    return [f for f in listdir(folder) if isfile(join(folder, f))]  # Return a list of files in a certain folder
 
 
 def read_files(categories, author_data, traits):
@@ -36,6 +36,8 @@ def read_files(categories, author_data, traits):
     :return: List with read data, each entry in the form (tokenized_data, personality_traits)
     """
     feats = list()
+    punct_list = ['.', ',', '?', ':', '(', ')', '!', '\'', '`', '...', '``', '\'\'', '\"']
+
     print("\n##### Reading files...")
     for category in categories:
         files = get_filenames_in_folder(category)
@@ -48,7 +50,7 @@ def read_files(categories, author_data, traits):
                 if author[5] != '----':
                     tokens = word_tokenize(data)
                     lower_tokens = [token.lower() for token in tokens]
-                    use_tokens = [token for token in lower_tokens if token not in ['.', ',', '?', ':', '(', ')', '!', '\'', '`', '...', '``', '\'\'', '\"']]
+                    use_tokens = [token for token in lower_tokens if token not in punct_list]
                     scores = author[5].split('-')
                     for i in range(len(scores)):
                         if int(scores[i]) >= 50:
@@ -58,7 +60,7 @@ def read_files(categories, author_data, traits):
                     num_files += 1
                 else:
                     pass
-            # if num_files>=50: # you may want to de-comment this and the next line if you're doing tests (it just loads N documents instead of the whole collection so it runs faster
+            #if num_files>=50: # you may want to de-comment this and the next line if you're doing tests (it just loads N documents instead of the whole collection so it runs faster
             #	break
             except UnicodeDecodeError:
                 print('Decode error')
@@ -97,32 +99,32 @@ def read_authordata(authorfile):
     return authors
 
 
-def high_information_words(files, score_fn=BigramAssocMeasures.chi_sq, min_score = 50):
+def high_information_words(files, score_fn=BigramAssocMeasures.chi_sq, min_score=50):
     word_dict = FreqDist()
     ocean_word_dict = ConditionalFreqDist()
     hiw_categories = []
 
     for file in files:
-        #For each token, add 1 to the overall FreqDist and 1 to the ConditionalFreqDist under the current personality trait
+        # For each token, add 1 to the overall FreqDist and 1 to the ConditionalFreqDist under the current personality trait
         for token in file[0]:
             for trait in file[1]:
                 ocean_word_dict[trait][token] += 1
             word_dict[token] += 1
 
-    n_xx = ocean_word_dict.N() #Get the total number of recordings in the ConditionalFreqDist
+    n_xx = ocean_word_dict.N()  # Get the total number of recordings in the ConditionalFreqDist
     high_info_words = set()
 
     for condition in ocean_word_dict.conditions():
-        n_xi = ocean_word_dict[condition].N() #Get the number of recordings for each personality trait
+        n_xi = ocean_word_dict[condition].N()  # Get the number of recordings for each personality trait
         word_scores = defaultdict(int)
 
         for word, n_ii in ocean_word_dict[condition].items():
-            n_ix = word_dict[word] #Get total number of recordings of a token
+            n_ix = word_dict[word]  # Get total number of recordings of a token
             score = score_fn(n_ii, (n_ix, n_xi), n_xx)
             word_scores[word] = score
 
         bestwords = [word for word, score in word_scores.items() if score >= min_score]
-        bw = list({k for k,v in sorted(word_scores.items(), key=lambda x: x[1], reverse=True)})
+        bw = list({k for k, v in sorted(word_scores.items(), key=lambda x: x[1], reverse=True)})
         high_info_words |= set(bestwords)
         hiw_categories.append((condition, bw[:10]))
 
@@ -188,7 +190,9 @@ def get_classifier(label_open, label_extra, label_con, label_neu, label_agree, x
     return classifier_open, classifier_extra, classifier_con, classifier_neu, classifier_agree
 
 
-def evaluation(classifier_open, classifier_extra, classifier_con, classifier_neu, classifier_agree, x_feats, label_open, label_extra, label_con, label_neu, label_agree):
+def evaluation(classifier_open, classifier_extra, classifier_con,
+               classifier_neu, classifier_agree, x_feats,
+               label_open, label_extra, label_con, label_neu, label_agree):
     """
     This function print the accuracy scores of the testing data.
     :param files: all classifiers created by classifier(), x_feats, and all y-labels created by get_fit
@@ -207,7 +211,7 @@ def evaluation(classifier_open, classifier_extra, classifier_con, classifier_neu
     print("Accuracy Concientiousness:", conc_acc)
     print("Accuracy Neuroticism:", neuro_acc)
     print("Accuracy Agreeableness:", agree_acc)
-    print("Average Accuracy:", round(av_acc,2), "\n")
+    print("Average Accuracy:", round(av_acc, 2), "\n")
 
     return open_acc, extra_acc, conc_acc, neuro_acc, agree_acc, av_acc
 
@@ -272,29 +276,48 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
                                                                                                              neu_train,
                                                                                                              agree_train,
                                                                                                              x_train)
-        open_acc, extra_acc, conc_acc, neuro_acc, agree_acc, av_acc = evaluation(classifier_open, classifier_extra,
-                                                                                 classifier_con, classifier_neu,
-                                                                                 classifier_agree, x_test,
-                                                                                 open_test, extra_test, con_test,
-                                                                                 neu_test, agree_test)
+        open_acc, extra_acc, conc_acc, neuro_acc, agree_acc, av_acc = evaluation(classifier_open,
+                                                                                 classifier_extra,
+                                                                                 classifier_con,
+                                                                                 classifier_neu,
+                                                                                 classifier_agree,
+                                                                                 x_test,
+                                                                                 open_test,
+                                                                                 extra_test,
+                                                                                 con_test,
+                                                                                 neu_test,
+                                                                                 agree_test)
         tot_open_acc += open_acc
         tot_extra_acc += extra_acc
         tot_conc_acc += conc_acc
         tot_neuro_acc += neuro_acc
         tot_agree_acc += agree_acc
         tot_av_acc += av_acc
-    print("Total Accuracy Openness:", round(tot_open_acc/n,2))
+    print("Total Accuracy Openness:", round(tot_open_acc/n, 2))
     print("Total Accuracy Extravertness:", round(tot_extra_acc/n, 2))
     print("Total Accuracy Concientiousness:", round(tot_conc_acc/n, 2))
     print("Total Accuracy Neuroticism:", round(tot_neuro_acc/n, 2))
     print("Total Accuracy Agreeableness:", round(tot_agree_acc/n, 2))
     print("Total Average Accuracy:", round(tot_av_acc/n, 2), "\n")
 
+
 def get_high_information_words(hiw_categories):
     print("Best high information words per personality trait")
-    print("{0:^20} {1:^20} {2:^20} {3:^20} {4:^20}".format(hiw_categories[0][0], hiw_categories[1][0], hiw_categories[2][0], hiw_categories[3][0], hiw_categories[4][0]))
-    for open_hiw, extra_hiw, conc_hiw, neuro_hiw, agree_hiw in zip(hiw_categories[0][1], hiw_categories[1][1], hiw_categories[2][1], hiw_categories[3][1], hiw_categories[4][1]):
-        print("{0:^20} {1:^20} {2:^20} {3:^20} {4:^20}".format(open_hiw, agree_hiw, conc_hiw, neuro_hiw, agree_hiw))
+    print("{0:^20} {1:^20} {2:^20} {3:^20} {4:^20}".format(hiw_categories[0][0],
+                                                           hiw_categories[1][0],
+                                                           hiw_categories[2][0],
+                                                           hiw_categories[3][0],
+                                                           hiw_categories[4][0]))
+    for open_hiw, extra_hiw, conc_hiw, neuro_hiw, agree_hiw in zip(hiw_categories[0][1],
+                                                                   hiw_categories[1][1],
+                                                                   hiw_categories[2][1],
+                                                                   hiw_categories[3][1],
+                                                                   hiw_categories[4][1]):
+        print("{0:^20} {1:^20} {2:^20} {3:^20} {4:^20}".format(open_hiw,
+                                                               agree_hiw,
+                                                               conc_hiw,
+                                                               neuro_hiw,
+                                                               agree_hiw))
 
 
 def main():
