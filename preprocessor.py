@@ -229,7 +229,7 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
     tot_open_acc = tot_extra_acc = tot_conc_acc = tot_neuro_acc = tot_agree_acc = tot_av_acc = 0
 
     for i in range(n):
-        print("\n#### Test {}".format(i + 1))
+        print("\n#### Cross Validation {}".format(i + 1))
         i1 = i * gap
         i2 = (i + 1) * gap
         if i == 0:
