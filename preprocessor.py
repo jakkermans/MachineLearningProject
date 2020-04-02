@@ -229,7 +229,7 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
     tot_open_acc = tot_extra_acc = tot_conc_acc = tot_neuro_acc = tot_agree_acc = tot_av_acc = 0
 
     for i in range(n):
-        print("Test ", i + 1, "\n")
+        print("\n#### Test {}".format(i + 1))
         i1 = i * gap
         i2 = (i + 1) * gap
         if i == 0:
@@ -271,6 +271,7 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
             con_test = label_con[i1:i2]
             neu_test = label_neu[i1:i2]
             agree_test = label_agree[i1:i2]
+
         classifier_open, classifier_extra, classifier_con, classifier_neu, classifier_agree = get_classifier(open_train,
                                                                                                              extra_train,
                                                                                                              con_train,
@@ -294,16 +295,18 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
         tot_neuro_acc += neuro_acc
         tot_agree_acc += agree_acc
         tot_av_acc += av_acc
-    print("Total Accuracy Openness:", round(tot_open_acc/n, 2))
-    print("Total Accuracy Extravertness:", round(tot_extra_acc/n, 2))
-    print("Total Accuracy Concientiousness:", round(tot_conc_acc/n, 2))
-    print("Total Accuracy Neuroticism:", round(tot_neuro_acc/n, 2))
-    print("Total Accuracy Agreeableness:", round(tot_agree_acc/n, 2))
-    print("Total Average Accuracy:", round(tot_av_acc/n, 2), "\n")
+
+    print("#### Averages")
+    print("Average Accuracy Openness:", round(tot_open_acc/n, 2))
+    print("Average Accuracy Extravertness:", round(tot_extra_acc/n, 2))
+    print("Average Accuracy Concientiousness:", round(tot_conc_acc/n, 2))
+    print("Average Accuracy Neuroticism:", round(tot_neuro_acc/n, 2))
+    print("Average Accuracy Agreeableness:", round(tot_agree_acc/n, 2))
+    print("Average Average Accuracy:", round(tot_av_acc/n, 2), "\n")
 
 
 def get_high_information_words(hiw_categories):
-    print("Best high information words per personality trait")
+    print("#### Best high information words per personality trait")
     print("{0:^20} {1:^20} {2:^20} {3:^20} {4:^20}".format(hiw_categories[0][0],
                                                            hiw_categories[1][0],
                                                            hiw_categories[2][0],
@@ -329,7 +332,6 @@ def main():
     author_data = read_authordata(args[0])
     traits = ['Openness', 'Concientiousness', 'Extravertness', 'Agreeableness', 'Neuroticism']
     files = read_files(args[1:], author_data, traits)
-    #print(files[:3])
     high_info, hiw_categories = high_information_words(files, min_score=15)
     label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files, high_info)
 
