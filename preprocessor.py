@@ -46,26 +46,27 @@ def read_files(categories, author_data, traits):
             personality_traits = []
             try:
                 data = open(category + '/' + f, 'r', encoding='UTF-8').read()
-                author = author_data[f[0:8]]
-                if author[5] != '----':
-                    tokens = word_tokenize(data)
-                    lower_tokens = [token.lower() for token in tokens]
-                    use_tokens = [token for token in lower_tokens if token not in punct_list]
-                    scores = author[5].split('-')
-                    for i in range(len(scores)):
-                        if int(scores[i]) >= 50:
-                            personality_traits.append(traits[i])
-                    feats.append((use_tokens, personality_traits))
-                    # print len(tokens)
-                    num_files += 1
-                else:
-                    pass
+                id = f.split('_')[0]
+                if id in author_data:
+                    author = author_data[id]
+                    if author[5] != '----':
+                        tokens = word_tokenize(data)
+                        lower_tokens = [token.lower() for token in tokens]
+                        use_tokens = [token for token in lower_tokens if token not in punct_list]
+                        scores = author[5].split('-')
+                        for i in range(len(scores)):
+                            if int(scores[i]) >= 50:
+                                personality_traits.append(traits[i])
+                        feats.append((use_tokens, personality_traits))
+                        # print len(tokens)
+                        num_files += 1
+
             #if num_files>=50: # you may want to de-comment this and the next line if you're doing tests (it just loads N documents instead of the whole collection so it runs faster
             #	break
             except UnicodeDecodeError:
                 print('Decode error')
 
-            print("  Category %s, %i files read" % (category, num_files))
+        print("  Category %s, %i files read" % (category, num_files))
 
     print("  Total, %i files read" % (len(feats)))
     return feats
@@ -328,6 +329,7 @@ def main():
     author_data = read_authordata(args[0])
     traits = ['Openness', 'Concientiousness', 'Extravertness', 'Agreeableness', 'Neuroticism']
     files = read_files(args[1:], author_data, traits)
+    #print(files[:3])
     high_info, hiw_categories = high_information_words(files, min_score=15)
     label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files, high_info)
 
