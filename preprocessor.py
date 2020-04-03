@@ -22,6 +22,43 @@ from collections import defaultdict
 import numpy
 
 
+def get_n_grams(tokens, n=2):
+    '''
+    Create n-grams list from token list
+    :param tokens:  List of strings
+    :param n:       Number of n-grams, set standard to bi-grams (2)
+    :return:        List of strings containing n-grams
+    '''
+
+    if n < 1:
+        print("Error pre_process_tokens: n must be 1 or more!", file=sys.stderr)
+
+    n_grams = []
+    for t in range(len(tokens)):
+        n_gram = ""
+        for x in range(n):
+            if t + x < len(tokens):
+                n_gram += tokens[t + x]
+                n_grams.append(n_gram)
+                n_gram += " "
+
+    return n_grams
+
+
+def replace_numbers(tokens):
+    '''
+    Replace numbers by string 'NUMBER'
+    :param tokens:      List of strings
+    :return: tokens:    List of strings, digits replace by "Number"
+    '''
+
+    for x in range(len(tokens)):
+        if tokens[x].isdigit():
+            tokens[x] = "NUMBER"
+
+    return tokens
+
+
 def get_filenames_in_folder(folder):
     return [f for f in listdir(folder) if isfile(join(folder, f))]  # Return a list of files in a certain folder
 
@@ -52,7 +89,9 @@ def read_files(categories, author_data, traits):
                     if author[5] != '----':
                         tokens = word_tokenize(data)
                         lower_tokens = [token.lower() for token in tokens]
-                        use_tokens = [token for token in lower_tokens if token not in punct_list]
+                        no_punct_tokens = [token for token in lower_tokens if token not in punct_list]
+                        word_tokens = replace_numbers(no_punct_tokens)
+                        use_tokens = get_n_grams(word_tokens, n=3)
                         scores = author[5].split('-')
                         for i in range(len(scores)):
                             if int(scores[i]) >= 50:
