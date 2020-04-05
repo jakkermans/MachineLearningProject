@@ -20,6 +20,7 @@ from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.naive_bayes import MultinomialNB
 from collections import defaultdict
 import numpy
+from nltk.stem.snowball import SnowballStemmer
 
 
 def get_n_grams(tokens, n=2):
@@ -77,6 +78,7 @@ def read_files(categories, author_data, traits):
 
     print("\n##### Reading files...")
     for category in categories:
+        stemmer = SnowballStemmer("dutch")
         files = get_filenames_in_folder(category)
         num_files = 0
         for f in files:
@@ -89,7 +91,7 @@ def read_files(categories, author_data, traits):
                     if author[5] != '----':
                         tokens = word_tokenize(data)
                         lower_tokens = [token.lower() for token in tokens]
-                        no_punct_tokens = [token for token in lower_tokens if token not in punct_list]
+                        no_punct_tokens = [stemmer.stem(token) for token in lower_tokens if token not in punct_list]
                         word_tokens = replace_numbers(no_punct_tokens)
                         use_tokens = get_n_grams(word_tokens, n=3)
                         scores = author[5].split('-')
