@@ -21,6 +21,7 @@ from sklearn.naive_bayes import MultinomialNB
 from collections import defaultdict
 import numpy
 from nltk.stem.snowball import SnowballStemmer
+import string
 
 
 def get_n_grams(tokens, n=2):
@@ -55,7 +56,7 @@ def replace_numbers(tokens):
 
     for x in range(len(tokens)):
         if tokens[x].isdigit():
-            tokens[x] = "NUMBER"
+            tokens[x] = "#"
 
     return tokens
 
@@ -77,7 +78,8 @@ def read_files(categories, author_data, traits, n_grams=1):
     """
 
     feats = list()
-    punct_list = ['.', ',', '?', ':', '(', ')', '!', '\'', '`', '...', '``', '\'\'', '\"']
+    punct_list = ['.', ',', '?', ':', '(', ')', '!', "'", '`', '...', '``', "''", '"', "’", "”", "“", "’", "-", ";", "‘" "="]
+    punct = ".,?:()!'```\"’”“’-‘"
 
     print("\n##### Reading files...")
     for category in categories:
@@ -94,9 +96,10 @@ def read_files(categories, author_data, traits, n_grams=1):
                     if author[5] != '----':
                         tokens = word_tokenize(data)
                         lower_tokens = [token.lower() for token in tokens]
-                        no_punct_tokens = [stemmer.stem(token) for token in lower_tokens if token not in punct_list]
-                        word_tokens = replace_numbers(no_punct_tokens)
-                        use_tokens = get_n_grams(word_tokens, n=n_grams)
+                        no_punct_tokens = [token.replace("-", " ").replace(".", "").strip(punct).strip() for token in lower_tokens if token not in punct_list]
+                        word_tokens = replace_numbers([t.strip() for token in no_punct_tokens for t in token.split()])
+                        stem_tokens = [stemmer.stem(token) for token in word_tokens]
+                        use_tokens = get_n_grams(stem_tokens, n=n_grams)
                         scores = author[5].split('-')
                         for i in range(len(scores)):
                             if int(scores[i]) >= 50:
@@ -351,7 +354,7 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
     print("Average Accuracy Agreeableness:", round(tot_agree_acc/n, 2))
     print("Average Average Accuracy:", round(tot_av_acc/n, 2), "\n")
 
-    return round(tot_av_acc/n, 2)
+    return round(tot_av_acc/n, 4)
 
 
 def get_high_information_words(hiw_categories):
@@ -387,7 +390,7 @@ def main():
     files = read_files(args[1:],
                        author_data,
                        traits,
-                       n_grams=5)
+                       n_grams=3)
     high_info, hiw_categories = high_information_words(files,
                                                        min_score=15)
     label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files,
