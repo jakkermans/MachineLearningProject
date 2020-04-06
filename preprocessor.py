@@ -64,15 +64,18 @@ def get_filenames_in_folder(folder):
     return [f for f in listdir(folder) if isfile(join(folder, f))]  # Return a list of files in a certain folder
 
 
-def read_files(categories, author_data, traits):
+def read_files(categories, author_data, traits, n_grams=1):
     """
     This function reads in all the files from a folder. For each file, the function tokenizes the data and lowercases each token.
     The author of the file is derived from the dictionary of authors. For each of the OCEAN scores for this author, the function checks whether
     it exceeds 50. If it does, the personality trait is added to a list. This list, together with the tokenized data, is added to a list of read data
-    :param categories: list of folders to process
+    :param categories:  list of folders to process
     :param author_data: Dictionary of authors and their corresponding data
-    :return: List with read data, each entry in the form (tokenized_data, personality_traits)
+    :param traits:
+    :param n_grams:     Number of n-grams, set standard to uni-grams (1)
+    :return:            List with read data, each entry in the form (tokenized_data, personality_traits)
     """
+
     feats = list()
     punct_list = ['.', ',', '?', ':', '(', ')', '!', '\'', '`', '...', '``', '\'\'', '\"']
 
@@ -93,7 +96,7 @@ def read_files(categories, author_data, traits):
                         lower_tokens = [token.lower() for token in tokens]
                         no_punct_tokens = [stemmer.stem(token) for token in lower_tokens if token not in punct_list]
                         word_tokens = replace_numbers(no_punct_tokens)
-                        use_tokens = get_n_grams(word_tokens, n=3)
+                        use_tokens = get_n_grams(word_tokens, n=n_grams)
                         scores = author[5].split('-')
                         for i in range(len(scores)):
                             if int(scores[i]) >= 50:
@@ -121,6 +124,7 @@ def read_authordata(authorfile):
     :param authorfile: Text file with all the author data
     :return: Dictionary with authors and their data
     """
+
     authors = {}
     country_token = '[A-Z][a-z]+ [A-Z][a-z]+'
     with open(authorfile, 'r') as datafile:
@@ -219,6 +223,7 @@ def get_classifier(label_open, label_extra, label_con, label_neu, label_agree, x
     :param files: x_feats and y labels created by get_fit
     :return: A classifier for every personality type
     """
+
     classifier_open = MultinomialNB()
     classifier_extra = MultinomialNB()
     classifier_con = MultinomialNB()
@@ -264,6 +269,7 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
     :param n: amount of cross validations, all x and y values as labels or feats.
     :return: Prints total accuracies in the end
     """
+
     mlb = MultiLabelBinarizer()
     x_feats = mlb.fit_transform(feats)
     gap = int(len(x_feats) / n)
@@ -372,7 +378,7 @@ def main():
 
     author_data = read_authordata(args[0])
     traits = ['Openness', 'Concientiousness', 'Extravertness', 'Agreeableness', 'Neuroticism']
-    files = read_files(args[1:], author_data, traits)
+    files = read_files(args[1:], author_data, traits, n_grams=3)
     high_info, hiw_categories = high_information_words(files, min_score=15)
     label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files, high_info)
 
