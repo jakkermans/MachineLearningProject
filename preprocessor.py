@@ -377,12 +377,27 @@ def main():
         args.append(arg)
 
     author_data = read_authordata(args[0])
-    traits = ['Openness', 'Concientiousness', 'Extravertness', 'Agreeableness', 'Neuroticism']
-    files = read_files(args[1:], author_data, traits, n_grams=3)
-    high_info, hiw_categories = high_information_words(files, min_score=15)
-    label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files, high_info)
+    traits = ['Openness',
+              'Concientiousness',
+              'Extravertness',
+              'Agreeableness',
+              'Neuroticism']
+    files = read_files(args[1:],
+                       author_data,
+                       traits,
+                       n_grams=3)
+    high_info, hiw_categories = high_information_words(files,
+                                                       min_score=15)
+    label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files,
+                                                                                high_info)
 
-    n_cross_validation(10, label_open, label_extra, label_con, label_neu, label_agree, feats)
+    n_cross_validation(10,
+                       label_open,
+                       label_extra,
+                       label_con,
+                       label_neu,
+                       label_agree,
+                       feats)
 
     get_high_information_words(hiw_categories)
 

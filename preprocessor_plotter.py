@@ -20,16 +20,30 @@ def main():
         args.append(arg)
 
     author_data = read_authordata(args[0])
-    traits = ['Openness', 'Concientiousness', 'Extravertness', 'Agreeableness', 'Neuroticism']
-    files = read_files(args[1:], author_data, traits)
+    traits = ['Openness',
+              'Concientiousness',
+              'Extravertness',
+              'Agreeableness',
+              'Neuroticism']
+    files = read_files(args[1:],
+                       author_data,
+                       traits)
 
-    for i in range(5,101):
+    for i in range(5, 101):
         print("\n", "#### Test with threshold score {}".format(i), end="")
         indices.append(i)
-        high_info, hiw_categories = high_information_words(files, min_score=i)
-        label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files, high_info)
+        high_info, hiw_categories = high_information_words(files,
+                                                           min_score=i)
+        label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files,
+                                                                                    high_info)
 
-        avg_acc = n_cross_validation(10, label_open, label_extra, label_con, label_neu, label_agree, feats)
+        avg_acc = n_cross_validation(10,
+                                     label_open,
+                                     label_extra,
+                                     label_con,
+                                     label_neu,
+                                     label_agree,
+                                     feats)
         accs.append(avg_acc)
 
     #get_high_information_words(hiw_categories)
