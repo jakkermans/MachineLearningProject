@@ -112,7 +112,7 @@ def read_files(categories, author_data, traits, n_grams=1):
 
         print("  Category %s, %i files read" % (category, num_files))
 
-    print("  Total, %i files read" % (len(feats)))
+    print("  Total, %i files read\n" % (len(feats)))
     return feats
 
 
@@ -276,7 +276,7 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
     tot_open_acc = tot_extra_acc = tot_conc_acc = tot_neuro_acc = tot_agree_acc = tot_av_acc = 0
 
     for i in range(n):
-        print("\n#### Cross Validation {}".format(i + 1))
+        print("#### Cross Validation {}".format(i + 1))
         i1 = i * gap
         i2 = (i + 1) * gap
         if i == 0:
@@ -350,6 +350,8 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
     print("Average Accuracy Neuroticism:", round(tot_neuro_acc/n, 2))
     print("Average Accuracy Agreeableness:", round(tot_agree_acc/n, 2))
     print("Average Average Accuracy:", round(tot_av_acc/n, 2), "\n")
+
+    return round(tot_av_acc/n, 2)
 
 
 def get_high_information_words(hiw_categories):
