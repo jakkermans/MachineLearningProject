@@ -348,17 +348,17 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
 
 def get_high_information_words(hiw_categories):
     print("#### Best high information words per personality trait")
-    print("{0:^20} {1:^20} {2:^20} {3:^20} {4:^20}".format(hiw_categories[0][0],
-                                                           hiw_categories[1][0],
-                                                           hiw_categories[2][0],
-                                                           hiw_categories[3][0],
-                                                           hiw_categories[4][0]))
+    print("# {0:<28} # {1:<28} # {2:<28} # {3:<28} # {4:<28}".format(hiw_categories[0][0],
+                                                                     hiw_categories[1][0],
+                                                                     hiw_categories[2][0],
+                                                                     hiw_categories[3][0],
+                                                                     hiw_categories[4][0]))
     for open_hiw, extra_hiw, conc_hiw, neuro_hiw, agree_hiw in zip(hiw_categories[0][1],
                                                                    hiw_categories[1][1],
                                                                    hiw_categories[2][1],
                                                                    hiw_categories[3][1],
                                                                    hiw_categories[4][1]):
-        print("{0:^20} {1:^20} {2:^20} {3:^20} {4:^20}".format(open_hiw,
+        print("{0:<30} {1:<30} {2:<30} {3:<30} {4:<30}".format(open_hiw,
                                                                agree_hiw,
                                                                conc_hiw,
                                                                neuro_hiw,
