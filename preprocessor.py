@@ -387,7 +387,7 @@ def main():
     files = read_files(args[1:],
                        author_data,
                        traits,
-                       n_grams=3)
+                       n_grams=5)
     high_info, hiw_categories = high_information_words(files,
                                                        min_score=15)
     label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files,

@@ -45,7 +45,6 @@ def main():
                                      label_agree,
                                      feats)
         accs.append(avg_acc)
-        print(i, avg_acc)
 
     #get_high_information_words(hiw_categories)
     plt.plot(indices, accs)
