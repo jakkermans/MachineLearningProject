@@ -31,7 +31,7 @@ def main():
 
     for i in range(5, 101):
         print("\n")
-        print("##### Test with threshold score {}".format(i), end="")
+        print("##### Test with threshold score {}".format(i))
         indices.append(i)
         high_info, hiw_categories = high_information_words(files,
                                                            min_score=i)

@@ -28,7 +28,7 @@ def main():
 
     for i in range(1, 10):
         print("\n")
-        print("##### Test with {}-gram".format(i), end="")
+        print("##### Test with {}-gram".format(i),)
         indices.append(i)
 
         files = read_files(args[1:],
