@@ -96,7 +96,7 @@ def read_files(categories, author_data, traits, n_grams=1):
                     if author[5] != '----':
                         tokens = word_tokenize(data)
                         lower_tokens = [token.lower() for token in tokens]
-                        no_punct_tokens = [token.replace("-", " ").replace(".", "").strip(punct).strip() for token in lower_tokens if token not in punct_list]
+                        no_punct_tokens = [token.replace("-", " ").replace(".", "").replace(",", "").strip(punct).strip() for token in lower_tokens if token not in punct_list]
                         word_tokens = replace_numbers([t.strip() for token in no_punct_tokens for t in token.split()])
                         stem_tokens = [stemmer.stem(token) for token in word_tokens]
                         use_tokens = get_n_grams(stem_tokens, n=n_grams)
@@ -390,9 +390,9 @@ def main():
     files = read_files(args[1:],
                        author_data,
                        traits,
-                       n_grams=3)
+                       n_grams=1)
     high_info, hiw_categories = high_information_words(files,
-                                                       min_score=15)
+                                                       min_score=13)
     label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files,
                                                                                 high_info)
 

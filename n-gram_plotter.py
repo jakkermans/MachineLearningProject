@@ -37,7 +37,7 @@ def main():
                            n_grams=i)
 
         high_info, hiw_categories = high_information_words(files,
-                                                           min_score=15)
+                                                           min_score=13)
         label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files,
                                                                                     high_info)
 
