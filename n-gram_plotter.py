@@ -27,7 +27,8 @@ def main():
               'Neuroticism']
 
     for i in range(1, 20):
-        print("\n", "#### Test with {}-gram".format(i), end="")
+        print("\n")
+        print("#### Test with {}-gram".format(i), end="")
         indices.append(i)
 
         files = read_files(args[1:],
