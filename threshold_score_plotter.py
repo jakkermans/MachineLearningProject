@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-File name:  preprocessor_plotter.py
+File name:  threshold_score_plotter.py
 Course:     Machine Learning Project
 Authors:    Martijn E.N.F.L. Schendstok (s2688174)
             Jannick J.C. Akkermans      (s3429075)
