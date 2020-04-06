@@ -354,12 +354,12 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
     print("Average Accuracy Agreeableness:", round(tot_agree_acc/n, 2))
     print("Average Average Accuracy:", round(tot_av_acc/n, 2), "\n")
 
-    return round(tot_av_acc/n, 4)
+    return round(tot_av_acc/n, 2)
 
 
 def get_high_information_words(hiw_categories):
     print("#### Best high information words per personality trait")
-    print("# {0:<28} # {1:<28} # {2:<28} # {3:<28} # {4:<28}".format(hiw_categories[0][0],
+    print("# {0:<38} # {1:<38} # {2:<38} # {3:<38} # {4:<38}".format(hiw_categories[0][0],
                                                                      hiw_categories[1][0],
                                                                      hiw_categories[2][0],
                                                                      hiw_categories[3][0],
@@ -369,7 +369,7 @@ def get_high_information_words(hiw_categories):
                                                                    hiw_categories[2][1],
                                                                    hiw_categories[3][1],
                                                                    hiw_categories[4][1]):
-        print("{0:<30} {1:<30} {2:<30} {3:<30} {4:<30}".format(open_hiw,
+        print("{0:<40} {1:<40} {2:<40} {3:<40} {4:<40}".format(open_hiw,
                                                                agree_hiw,
                                                                conc_hiw,
                                                                neuro_hiw,
@@ -390,7 +390,7 @@ def main():
     files = read_files(args[1:],
                        author_data,
                        traits,
-                       n_grams=1)
+                       n_grams=5)
     high_info, hiw_categories = high_information_words(files,
                                                        min_score=13)
     label_open, label_extra, label_con, label_neu, label_agree, feats = get_fit(files,
