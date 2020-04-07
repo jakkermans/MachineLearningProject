@@ -386,9 +386,9 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
         print("{0:^15}{1:^23}".format("", ("-" * 23)))
         print("{0:^15}|{1:^10}|{2:^10}|".format("", "+", "-"))
         print("-" * 38)
-        print("{0:<9}|{1:^5}|{2:^10}|{3:^10}|".format("Actual", "+", tp, fn))
-        print("-" * 38)
-        print("{0:<9}|{1:^5}|{2:^10}|{3:^10}|".format("Class", "-", fp, tn))
+        print("|{0:<8}|{1:^5}|{2:^10}|{3:^10}|".format("Actual", "+", tp, fn))
+        print("|{0:<8}{1:^29}".format("", ("-" * 29)))
+        print("|{0:<8}|{1:^5}|{2:^10}|{3:^10}|".format("Class", "-", fp, tn))
         print("-" * 38, "\n")
 
     return round(tot_av_acc/n, 2)
