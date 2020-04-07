@@ -12,7 +12,6 @@ from os import listdir  # to read files
 from os.path import isfile, join  # to read files
 from nltk.tokenize import word_tokenize
 from nltk.probability import FreqDist, ConditionalFreqDist
-from nltk.collocations import BigramCollocationFinder
 from nltk.metrics import BigramAssocMeasures
 import sys
 import re
@@ -21,7 +20,8 @@ from sklearn.naive_bayes import MultinomialNB
 from collections import defaultdict
 import numpy
 from nltk.stem.snowball import SnowballStemmer
-import string
+import collections
+from sklearn.metrics import f1_score
 
 
 def get_n_grams(tokens, n=2):
@@ -240,20 +240,18 @@ def get_classifier(label_open, label_extra, label_con, label_neu, label_agree, x
     return classifier_open, classifier_extra, classifier_con, classifier_neu, classifier_agree
 
 
-def evaluation(classifier_open, classifier_extra, classifier_con,
-               classifier_neu, classifier_agree, x_feats,
-               label_open, label_extra, label_con, label_neu, label_agree):
+def evaluation(classifier_dict, x_feats, label_dict):
     """
     This function print the accuracy scores of the testing data.
     :param files: all classifiers created by classifier(), x_feats, and all y-labels created by get_fit
     :return: Prints the accuracies and returns them too
     """
 
-    open_acc = classifier_open.score(x_feats, label_open)
-    extra_acc = classifier_extra.score(x_feats, label_extra)
-    conc_acc = classifier_con.score(x_feats, label_con)
-    neuro_acc = classifier_neu.score(x_feats, label_neu)
-    agree_acc = classifier_agree.score(x_feats, label_agree)
+    open_acc = classifier_dict["open"].score(x_feats, label_dict["open"])
+    extra_acc = classifier_dict["extra"].score(x_feats, label_dict["extra"])
+    conc_acc = classifier_dict["con"].score(x_feats, label_dict["con"])
+    neuro_acc = classifier_dict["neu"].score(x_feats, label_dict["neu"])
+    agree_acc = classifier_dict["agree"].score(x_feats, label_dict["agree"])
     av_acc = sum((open_acc, extra_acc, conc_acc, neuro_acc, agree_acc))/5
 
     print("Accuracy Openness:", open_acc)
@@ -328,23 +326,34 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
                                                                                                              neu_train,
                                                                                                              agree_train,
                                                                                                              x_train)
-        open_acc, extra_acc, conc_acc, neuro_acc, agree_acc, av_acc = evaluation(classifier_open,
-                                                                                 classifier_extra,
-                                                                                 classifier_con,
-                                                                                 classifier_neu,
-                                                                                 classifier_agree,
+        classifier_dict = {"open": classifier_open,
+                           "extra": classifier_extra,
+                           "con": classifier_con,
+                           "neu": classifier_neu,
+                           "agree": classifier_agree}
+        test_dict = {"open": open_test,
+                     "extra": extra_test,
+                     "con": con_test,
+                     "neu": neu_test,
+                     "agree": agree_test}
+
+        open_acc, extra_acc, conc_acc, neuro_acc, agree_acc, av_acc = evaluation(classifier_dict,
                                                                                  x_test,
-                                                                                 open_test,
-                                                                                 extra_test,
-                                                                                 con_test,
-                                                                                 neu_test,
-                                                                                 agree_test)
+                                                                                 test_dict)
         tot_open_acc += open_acc
         tot_extra_acc += extra_acc
         tot_conc_acc += conc_acc
         tot_neuro_acc += neuro_acc
         tot_agree_acc += agree_acc
         tot_av_acc += av_acc
+
+        # Get F-scores
+        f_measures = defaultdict(int)
+        for label in classifier_dict:
+            print(len(classifier_dict[label].predict(x_feats)), len(test_dict[label]))
+            f_measures[label] += f1_score(classifier_dict[label].predict(x_feats),
+                                          test_dict[label],
+                                          average='macro')
 
     print("#### Averages")
     print("Average Accuracy Openness:", round(tot_open_acc/n, 2))
@@ -353,6 +362,15 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
     print("Average Accuracy Neuroticism:", round(tot_neuro_acc/n, 2))
     print("Average Accuracy Agreeableness:", round(tot_agree_acc/n, 2))
     print("Average Average Accuracy:", round(tot_av_acc/n, 2), "\n")
+
+    print("#### F-score")
+    print("Average F-score Openness:", round(f_measures["open"] / n, 2))
+    print("Average F-score Extravertness:", round(f_measures["extra"] / n, 2))
+    print("Average F-score Concientiousness:", round(f_measures["con"] / n, 2))
+    print("Average F-score Neuroticism:", round(f_measures["neu"] / n, 2))
+    print("Average F-score Agreeableness:", round(f_measures["agree"] / n, 2))
+    tot_av_f1 = (f_measures["open"] + f_measures["extra"] + f_measures["con"] + f_measures["neu"] + f_measures["agree"])/5
+    print("Average F-score Accuracy:", round(tot_av_f1 / n, 2), "\n")
 
     return round(tot_av_acc/n, 2)
 
