@@ -20,8 +20,7 @@ from sklearn.naive_bayes import MultinomialNB
 from collections import defaultdict
 import numpy
 from nltk.stem.snowball import SnowballStemmer
-import collections
-from sklearn.metrics import f1_score
+from sklearn.metrics import f1_score, confusion_matrix
 
 
 def get_n_grams(tokens, n=2):
@@ -264,7 +263,7 @@ def evaluation(classifier_dict, x_feats, label_dict):
     return open_acc, extra_acc, conc_acc, neuro_acc, agree_acc, av_acc
 
 
-def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_agree, feats):
+def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_agree, feats, f_score=False):
     """
     This function does the cross validation. It prints the accuracies in the end
     :param n: amount of cross validations, all x and y values as labels or feats.
@@ -275,6 +274,8 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
     x_feats = mlb.fit_transform(feats)
     gap = int(len(x_feats) / n)
     tot_open_acc = tot_extra_acc = tot_conc_acc = tot_neuro_acc = tot_agree_acc = tot_av_acc = 0
+    f_measures = defaultdict(int)
+    tn = fp = fn = tp = 0
 
     for i in range(n):
         print("#### Cross Validation {}".format(i + 1))
@@ -348,12 +349,18 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
         tot_av_acc += av_acc
 
         # Get F-scores
-        f_measures = defaultdict(int)
-        for label in classifier_dict:
-            print(len(classifier_dict[label].predict(x_feats)), len(test_dict[label]))
-            f_measures[label] += f1_score(classifier_dict[label].predict(x_feats),
-                                          test_dict[label],
-                                          average='macro')
+        if f_score:
+            for label in classifier_dict:
+                y_true = test_dict[label]
+                y_pred = classifier_dict[label].predict(x_test)
+                f_measures[label] += f1_score(y_true,
+                                              y_pred,
+                                              average='macro')
+                tn_x, fp_x, fn_x, tp_x = confusion_matrix(y_true, y_pred).ravel()
+                tn += tn_x
+                fp += fp_x
+                fn += fn_x
+                tp += tp_x
 
     print("#### Averages")
     print("Average Accuracy Openness:", round(tot_open_acc/n, 2))
@@ -363,14 +370,26 @@ def n_cross_validation(n, label_open, label_extra, label_con, label_neu, label_a
     print("Average Accuracy Agreeableness:", round(tot_agree_acc/n, 2))
     print("Average Average Accuracy:", round(tot_av_acc/n, 2), "\n")
 
-    print("#### F-score")
-    print("Average F-score Openness:", round(f_measures["open"] / n, 2))
-    print("Average F-score Extravertness:", round(f_measures["extra"] / n, 2))
-    print("Average F-score Concientiousness:", round(f_measures["con"] / n, 2))
-    print("Average F-score Neuroticism:", round(f_measures["neu"] / n, 2))
-    print("Average F-score Agreeableness:", round(f_measures["agree"] / n, 2))
-    tot_av_f1 = (f_measures["open"] + f_measures["extra"] + f_measures["con"] + f_measures["neu"] + f_measures["agree"])/5
-    print("Average F-score Accuracy:", round(tot_av_f1 / n, 2), "\n")
+    if f_score:
+        print("#### F-score")
+        print("Average F-score Openness:", round(f_measures["open"] / n, 2))
+        print("Average F-score Extravertness:", round(f_measures["extra"] / n, 2))
+        print("Average F-score Concientiousness:", round(f_measures["con"] / n, 2))
+        print("Average F-score Neuroticism:", round(f_measures["neu"] / n, 2))
+        print("Average F-score Agreeableness:", round(f_measures["agree"] / n, 2))
+        tot_av_f1 = (f_measures["open"] + f_measures["extra"] + f_measures["con"] + f_measures["neu"] + f_measures["agree"])/5
+        print("Average F-score Accuracy:", round(tot_av_f1 / n, 2), "\n")
+
+        print("#### Confusion Matrix")
+        print("{0:^15}{1:^23}".format("", ("-" * 23)))
+        print("{0:^15}|{1:^21}|".format("", "Prediction classes"))
+        print("{0:^15}{1:^23}".format("", ("-" * 23)))
+        print("{0:^15}|{1:^10}|{2:^10}|".format("", "+", "-"))
+        print("-" * 38)
+        print("{0:<9}|{1:^5}|{2:^10}|{3:^10}|".format("Actual", "+", tp, fn))
+        print("-" * 38)
+        print("{0:<9}|{1:^5}|{2:^10}|{3:^10}|".format("Class", "-", fp, tn))
+        print("-" * 38, "\n")
 
     return round(tot_av_acc/n, 2)
 
@@ -420,7 +439,8 @@ def main():
                        label_con,
                        label_neu,
                        label_agree,
-                       feats)
+                       feats,
+                       f_score=True)
 
     get_high_information_words(hiw_categories)
 
